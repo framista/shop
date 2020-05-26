@@ -1,8 +1,15 @@
-$font-stack: "Nunito Sans", Helvetica, Arial, sans-serif;
-$grey: #F9F9F9;
+$font-stack: 'Cabin', Helvetica, Arial, sans-serif;
+$grey: #f9f9f9;
+$promotion-bg: #f5f5f5;
+$black: #231f20;
+$facebook-bg: #3a559f;
 
 @mixin centerFlex() {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hidden {
+  display: none !important;
 }

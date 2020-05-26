@@ -1,0 +1,18 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg">
+<metadata>Copyright (C) 2020 by original authors @ fontello.com</metadata>
+<defs>
+<font id="fontello" horiz-adv-x="1000" >
+<font-face font-family="fontello" font-weight="400" font-stretch="normal" units-per-em="1000" ascent="850" descent="-150" />
+<missing-glyph horiz-adv-x="1000" />
+<glyph glyph-name="facebook" unicode="&#xe800;" d="M711 629l-103 0a183 183 0 0 1-193-197v-91h-104a16 16 0 0 1-17-16v-132a16 16 0 0 1 17-16h104v-349h169v349h122a16 16 0 0 1 17 16v132a16 16 0 0 1-17 16h-122v77c0 37 9 56 57 56h70a16 16 0 0 1 17 17v122a16 16 0 0 1-17 16z" horiz-adv-x="1000" />
+
+<glyph glyph-name="mail" unicode="&#xe801;" d="M1197 850h-1082a114 114 0 0 1-49-11l588-588 132 126h0l461 461a114 114 0 0 1-50 12z m104-66l-434-434 434-434a114 114 0 0 1 12 49v770a114 114 0 0 1-12 49z m-1289 0a114 114 0 0 1-12-49v-770a114 114 0 0 1 12-49l434 434z m801-488l-132-127a39 39 0 0 0-54 0l-127 127-434-434a114 114 0 0 1 49-12h1082a114 114 0 0 1 50 11z" horiz-adv-x="1313" />
+
+<glyph glyph-name="arrow" unicode="&#xe802;" d="M41 809l459-459-459-459" horiz-adv-x="581" />
+
+<glyph glyph-name="phone" unicode="&#xe803;" d="M920 194a568 568 0 0 0-179 28 82 82 0 0 1-79-17l-112-85a621 621 0 0 0-280 280l83 109a81 81 0 0 1 20 82 569 569 0 0 0-29 179 80 80 0 0 1-80 80h-184a80 80 0 0 1-80-80 921 921 0 0 1 920-920 80 80 0 0 1 80 80v183a80 80 0 0 1-80 81z" horiz-adv-x="1000" />
+</font>
+</defs>
+</svg>

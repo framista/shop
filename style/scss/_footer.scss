@@ -1,3 +1,108 @@
-footer{
-    
+footer {
+  .promotion {
+    @include centerFlex();
+    flex-direction: column;
+    color: $black;
+    background-color: $promotion-bg;
+    padding: 50px;
+    p {
+      padding: 5px;
+    }
+    #promotion--discount {
+      font-size: 25px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    #promotion--information {
+      font-size: 20px;
+      font-weight: 300px;
+    }
+    a {
+      background-color: $black;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: 13px;
+      font-weight: 900;
+      color: white;
+      padding: 10px 20px;
+      margin: 20px 0px 0px;
+      line-height: 17px;
+      letter-spacing: 2px;
+    }
+  }
+  .menu {
+    background-color: $black;
+    padding: 20px;
+    &__item {
+      @include centerFlex();
+      flex-direction: column;
+      justify-content: start;
+      padding: 10px;
+      p {
+        color: white;
+        text-transform: uppercase;
+        font-weight: 600;
+        font-size: 15px;
+        padding: 5px;
+      }
+      ul {
+        text-align: center;
+        li {
+          list-style: none;
+          padding: 3px;
+          line-height: 1.5;
+          a {
+            font-weight: 300px;
+            font-size: 13px;
+            color: white;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+  .contact {
+    padding: 20px;
+    @include centerFlex();
+    .socialMedia {
+      @include centerFlex();
+      justify-content: space-evenly;
+      flex-wrap: wrap;
+      &__item {
+        margin: 5px;
+        @include centerFlex();
+        font-size: 13px;
+        a {
+          color: $black;
+          text-decoration: none;
+          i {
+            background-color: white;
+            color: $black;
+            margin-right: 5px;
+          }
+          #facebook {
+            background-color: $facebook-bg;
+            color: white;
+            border-radius: 50%;
+          }
+          #arrow,
+          #facebook__text {
+            color: $facebook-bg;
+          }
+        }
+      }
+    }
+    .logo {
+      @include centerFlex();
+      margin: 5px;
+    }
+  }
+  #carriers {
+    text-align: center;
+    margin: 20px 0px 40px;
+    img {
+      width: 75%;
+    }
+  }
 }
