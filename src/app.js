@@ -66,9 +66,6 @@ $(document).ready(function () {
       },
     ],
   });
-});
-
-$(document).ready(function () {
   $('.slider--instagram').slick({
     infinite: true,
     speed: 1,
