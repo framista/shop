@@ -1,7 +1,9 @@
 .slider--shoes {
   width: 80%;
   margin: 0 auto;
+  transform: translateX(-20px);
   div {
+    transform: translateX(10px);
     @include centerFlex();
   }
 }

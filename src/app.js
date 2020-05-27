@@ -36,7 +36,7 @@ menuItems.forEach((item) => {
 $(document).ready(function () {
   $('.slider--shoes').slick({
     infinite: true,
-    speed: 1000,
+    speed: 1,
     slidesToShow: 6,
     slidesToScroll: 6,
     responsive: [
@@ -71,7 +71,7 @@ $(document).ready(function () {
 $(document).ready(function () {
   $('.slider--instagram').slick({
     infinite: true,
-    speed: 1000,
+    speed: 1,
     slidesToShow: 4,
     slidesToScroll: 4,
     responsive: [

@@ -4,6 +4,9 @@
 .slick-slide img {
   width: 100%;
 }
+.slick-next {
+  margin-left: 0px;
+}
 .slick-next::after {
   content: '>';
   color: $arrow-bg;

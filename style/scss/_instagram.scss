@@ -12,10 +12,12 @@
     padding: 10px;
   }
   .slider--instagram {
-    width: 80%;
+    width: 90%;
     margin: 0px auto;
+    transform: translateX(-10px);
     div {
       @include centerFlex();
+      transform: translateX(5px);
     }
   }
 }
