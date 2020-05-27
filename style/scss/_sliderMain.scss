@@ -1,0 +1,12 @@
+.sliderMain {
+  min-height: 40vh;
+  background-color: $grey;
+  div {
+    @include centerFlex();
+    p {
+      text-transform: uppercase;
+      font-size: 25px;
+      letter-spacing: 2px;
+    }
+  }
+}

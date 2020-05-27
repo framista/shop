@@ -1,22 +1,28 @@
 @import 'config';
 
 :root {
-    box-sizing: border-box;
-    font-size: 10px;
-    font-family: $font-stack;
+  box-sizing: border-box;
+  font-size: 10px;
+  font-family: $font-stack;
 }
 
-*, ::before, ::after {
-    box-sizing: inherit;
-    margin: 0;
-    padding: 0;
+*,
+::before,
+::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
 }
 
 @import 'grid';
+@import 'slider';
 @import 'header';
 @import 'navigator';
+@import 'sliderMain';
+@import 'sliderShoes';
+@import 'instagram';
 @import 'banner';
+@import 'benefit';
 @import 'footer';
 @import 'tablet';
 @import 'mobile';
-

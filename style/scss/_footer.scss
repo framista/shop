@@ -63,7 +63,7 @@ footer {
     }
   }
   .contact {
-    padding: 20px;
+    padding: 20px 20px 30px;
     @include centerFlex();
     .socialMedia {
       @include centerFlex();
@@ -86,10 +86,10 @@ footer {
             color: white;
             border-radius: 50%;
           }
-          #arrow,
-          #facebook__text {
-            color: $facebook-bg;
-          }
+        }
+        #arrow,
+        #facebook__text {
+          color: $facebook-bg;
         }
       }
     }
