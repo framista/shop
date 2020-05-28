@@ -1,3 +1,60 @@
 @media (max-width: 950px) {
-   
+  header {
+    #header--promotion {
+      margin-top: 50px;
+    }
+    #header--service {
+      display: none;
+    }
+    .company {
+      position: fixed;
+      justify-content: space-between;
+      top: 0px;
+      left: 0px;
+      z-index: 1000;
+      height: 50px;
+
+      .logo {
+        img {
+          width: 50%;
+          // margin: 10px;
+        }
+      }
+      .search {
+        width: 100%;
+        background-color: rosybrown;
+        // max-width: 20px;
+        form {
+          border-bottom: 3px solid $white;
+          input {
+            display: none;
+          }
+        }
+      }
+      .contact {
+        justify-content: space-between;
+        ul {
+          width: 100%;
+        }
+        #contact--phone,
+        #contact--client,
+        #contact--language,
+        #contact--arrowBox {
+          display: none;
+        }
+        #contact--box {
+          div {
+            display: none;
+          }
+        }
+        #contact--hamburger {
+          display: block !important;
+          //   padding: 200px;
+        }
+      }
+    }
+    .header__nav {
+      display: none;
+    }
+  }
 }
