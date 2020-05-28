@@ -66,6 +66,41 @@ $(document).ready(function () {
       },
     ],
   });
+  $('.slider--products').slick({
+    infinite: true,
+    // centerMode: true,
+    speed: 1,
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    responsive: [
+      {
+        breakpoint: breakPointLg,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          infinite: true,
+        },
+      },
+      {
+        breakpoint: breakPointMd,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          infinite: true,
+        },
+      },
+      {
+        breakpoint: breakPointSm,
+        settings: {
+          centerMode: true,
+          arrows: false,
+          slidesToShow: 1.2,
+          slidesToScroll: 1,
+          infinite: true,
+        },
+      },
+    ],
+  });
   $('.slider--instagram').slick({
     infinite: true,
     speed: 1,
