@@ -36,9 +36,13 @@ header {
     .logo {
       @include centerFlex();
       justify-content: flex-start;
-      img {
-        width: 50%;
-        margin: 10px 30px;
+      a {
+        width: 70%;
+        img {
+          width: 100%;
+          max-width: 230px;
+          margin: 10px 30px;
+        }
       }
     }
     .search {
@@ -85,6 +89,7 @@ header {
             }
           }
           div {
+            text-align: start;
             padding: 5px 10px;
             a {
               text-decoration: none;

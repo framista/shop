@@ -13,19 +13,16 @@
       left: 0px;
       z-index: 1000;
       height: 50px;
-
       .logo {
-        img {
-          width: 50%;
-          // margin: 10px;
+        a {
+          width: 60%;
         }
       }
       .search {
         width: 100%;
         background-color: rosybrown;
-        // max-width: 20px;
         form {
-          border-bottom: 3px solid $white;
+          border: none;
           input {
             display: none;
           }
@@ -49,12 +46,17 @@
         }
         #contact--hamburger {
           display: block !important;
-          //   padding: 200px;
         }
       }
     }
     .header__nav {
       display: none;
+    }
+  }
+  main {
+    .product {
+      transform: translateX(-20px);
+      max-width: 500px;
     }
   }
 }

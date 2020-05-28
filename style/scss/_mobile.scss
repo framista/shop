@@ -1,5 +1,20 @@
 @media (max-width: 650px) {
-  .product {
-    width: 100%;
+  header {
+    .company {
+      .logo {
+        a {
+          width: 90%;
+        }
+      }
+    }
+  }
+  main {
+    .product {
+      transform: translateX(-10px);
+      width: 100%;
+      .slider--products {
+        transform: translateX(10px);
+      }
+    }
   }
 }
