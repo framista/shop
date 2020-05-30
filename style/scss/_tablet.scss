@@ -141,6 +141,13 @@
         font-weight: 300;
       }
     }
+    .showHamburger {
+      position: fixed;
+      top: 10px;
+      left: 15px;
+      width: 60px;
+      background-color: $white;
+    }
   }
   main {
     .product {

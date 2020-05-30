@@ -2,6 +2,7 @@ const menuItems = document.querySelectorAll('.menu p');
 const menuLists = [...document.querySelectorAll('.menu ul')];
 const carriers = document.querySelector('#carriers');
 const socialMedia = document.querySelector('.socialMedia');
+const hamburger = document.querySelector('#contact--hamburger');
 const breakPointSm = 576;
 const breakPointMd = 768;
 const breakPointLg = 992;
@@ -33,6 +34,12 @@ menuItems.forEach((item) => {
       e.target.nextElementSibling.classList.toggle('hidden');
     }
   });
+});
+
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('showHamburger');
+  const submenu = document.querySelector('header > nav > ul');
+  submenu.classList.toggle('subnav--hide');
 });
 
 function nextSubmenu(e) {
