@@ -2,32 +2,42 @@ const menuItems = document.querySelectorAll('.menu p');
 const menuLists = [...document.querySelectorAll('.menu ul')];
 const carriers = document.querySelector('#carriers');
 const socialMedia = document.querySelector('.socialMedia');
+const nav = document.querySelector('nav');
 const submenu = document.querySelector('header > nav > ul');
+const submenuLiTemp = [...document.querySelectorAll('header > nav > ul > li')];
 const hamburger = document.querySelector('#contact--hamburger');
 const breakPointSm = 576;
 const breakPointMd = 768;
-const breakPointLg = 992;
+const breakPointLg = 951;
 // const breakPointXl = 1200;
 
 let levelMenu = 0;
 
 const navArrows = [...document.querySelectorAll('.nav--arrow > img')];
 
-const elementsToHideOnMobile = [...menuLists, carriers, socialMedia, submenu];
+const elementsToHideOnMobile = [
+  ...menuLists,
+  carriers,
+  socialMedia,
+  hamburger,
+  nav,
+  submenu,
+];
 
 function showMenuItems() {
-  if (window.innerWidth < breakPointMd) {
+  if (window.innerWidth < breakPointLg) {
     elementsToHideOnMobile.forEach((el) => el.classList.add('hidden'));
   } else {
     elementsToHideOnMobile.forEach((el) => el.classList.remove('hidden'));
+    hamburger.classList.remove('showHamburger');
   }
 }
 showMenuItems();
-window.addEventListener('resize', () => showMenuItems());
+window.addEventListener('resize', () => window.location.reload(true));
 
 menuItems.forEach((item) => {
   item.addEventListener('click', (e) => {
-    if (window.innerWidth < breakPointMd) {
+    if (window.innerWidth < breakPointLg) {
       const visibleElements = menuLists.filter(
         (ul) => ul !== item.nextElementSibling
       );
@@ -40,6 +50,7 @@ menuItems.forEach((item) => {
 hamburger.addEventListener('click', () => {
   hamburger.classList.toggle('showHamburger');
   submenu.classList.toggle('hidden');
+  nav.classList.toggle('hidden');
 });
 
 function nextSubmenu(e) {
@@ -88,8 +99,8 @@ function prevSubmenu(e) {
 }
 
 navArrows.forEach((arrow) => {
-  if (window.innerWidth <= breakPointLg) {
-    arrow.addEventListener('click', (e) => {
+  arrow.addEventListener('click', (e) => {
+    if (window.innerWidth <= breakPointLg) {
       switch (levelMenu) {
         case 0:
           levelMenu++;
@@ -110,8 +121,32 @@ navArrows.forEach((arrow) => {
           prevSubmenu(e);
           break;
       }
-    });
-  }
+    }
+  });
+});
+
+submenuLiTemp.forEach((li) => {
+  li.addEventListener('click', (e) => {
+    if (
+      window.innerWidth > breakPointLg &&
+      !li.classList.contains('li--onlymobile') &&
+      $(li).has('ul').length
+    ) {
+      e.preventDefault();
+      submenuLiTemp.forEach((submenuLi) => {
+        const element = submenuLi.querySelector('ul');
+        if (
+          submenuLi !== li &&
+          element &&
+          element.classList.contains('subnav')
+        ) {
+          element.classList = 'hidden';
+        }
+      });
+      li.querySelector('ul').classList.toggle('hidden');
+      li.querySelector('ul').classList.toggle('subnav');
+    }
+  });
 });
 
 $(document).ready(function () {
