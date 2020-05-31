@@ -1,7 +1,7 @@
 @media (max-width: 950px) {
   header {
     #header--promotion {
-      margin-top: 50px;
+      margin-top: $heightBox;
     }
     #header--service {
       display: none;
@@ -12,7 +12,7 @@
       top: 0px;
       left: 0px;
       z-index: 1000;
-      height: 50px;
+      height: $heightBox;
       .logo {
         a {
           width: 60%;
@@ -62,7 +62,7 @@
         li {
           display: flex;
           align-items: center;
-          height: 50px;
+          height: $heightBox;
           width: 100%;
           background-color: $white;
           border-bottom: 1.2px solid $darkGrey;
@@ -89,7 +89,7 @@
             display: block !important;
             z-index: 4000;
             position: absolute;
-            top: 50px;
+            top: $heightBox;
             left: 0px;
             padding: 0px;
             ul {
@@ -97,7 +97,7 @@
             }
           }
           .moveElement {
-            transform: translateY(-50px);
+            transform: translateY(-$heightBox);
           }
         }
       }
@@ -139,6 +139,12 @@
       }
       .li--light {
         font-weight: 300;
+      }
+      .li--onlymobile {
+        display: list-item;
+      }
+      img {
+        display: block;
       }
     }
     .showHamburger {

@@ -1,7 +1,7 @@
 header {
   #header--promotion {
     background-color: $discount-bg;
-    height: 47px;
+    height: $heightBox;
     @include centerFlex();
     a {
       color: $white;
@@ -18,7 +18,7 @@ header {
   #header--service {
     @include centerFlex();
     background-color: $black;
-    height: 47px;
+    height: $heightBox;
     div {
       @include centerFlex();
       width: 200px;
@@ -123,23 +123,87 @@ header {
     }
   }
   nav {
-    height: 47px;
+    height: $heightBox;
     @include centerFlex();
+    align-items: flex-start;
+    position: relative;
+    padding-top: 15px;
+    background-color: royalblue;
     ul {
       @include centerFlex();
+      max-width: 900px;
+      justify-content: space-evenly;
       li {
         list-style: none;
         text-transform: uppercase;
         padding: 15px;
         font-size: 18px;
         font-weight: 900;
+        padding: 0px;
+        margin: 0px;
+        img {
+          display: none;
+        }
+        &:first-child {
+          max-width: 900px;
+          background-color: $white;
+          ul {
+            background-color: $white;
+            position: absolute;
+            top: $heightBox;
+            display: grid;
+            justify-items: center;
+            align-items: start;
+            grid-template-columns: repeat(6, 1fr);
+            z-index: 1000;
+            li {
+              &:nth-child(1) {
+                grid-column: 1;
+                grid-row: 1;
+              }
+              &:nth-child(2) {
+                grid-column: 1;
+                grid-row: 2;
+              }
+              &:nth-child(3) {
+                grid-column: 2;
+                grid-row: 1 / 2;
+              }
+              &:nth-child(4) {
+                grid-column: 3;
+                grid-row: 1 / 2;
+              }
+              &:nth-child(5) {
+                grid-column: 4/7;
+                grid-row: 1;
+                place-self: center;
+              }
+              &:nth-child(6) {
+                grid-column: 4;
+                grid-row: 2;
+              }
+              &:nth-child(7) {
+                grid-column: 5;
+                grid-row: 2;
+              }
+              &:nth-child(8) {
+                grid-column: 6;
+                grid-row: 2;
+              }
+            }
+            ul {
+              position: static;
+              display: block;
+            }
+          }
+        }
+      }
+      .li--onlymobile {
+        display: none;
       }
       .special {
         color: $discount-bg;
       }
-    }
-    .subnav--hide {
-      display: none;
     }
   }
 }

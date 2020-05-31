@@ -2,6 +2,7 @@ const menuItems = document.querySelectorAll('.menu p');
 const menuLists = [...document.querySelectorAll('.menu ul')];
 const carriers = document.querySelector('#carriers');
 const socialMedia = document.querySelector('.socialMedia');
+const submenu = document.querySelector('header > nav > ul');
 const hamburger = document.querySelector('#contact--hamburger');
 const breakPointSm = 576;
 const breakPointMd = 768;
@@ -12,7 +13,7 @@ let levelMenu = 0;
 
 const navArrows = [...document.querySelectorAll('.nav--arrow > img')];
 
-const elementsToHideOnMobile = [...menuLists, carriers, socialMedia];
+const elementsToHideOnMobile = [...menuLists, carriers, socialMedia, submenu];
 
 function showMenuItems() {
   if (window.innerWidth < breakPointMd) {
@@ -38,8 +39,7 @@ menuItems.forEach((item) => {
 
 hamburger.addEventListener('click', () => {
   hamburger.classList.toggle('showHamburger');
-  const submenu = document.querySelector('header > nav > ul');
-  submenu.classList.toggle('subnav--hide');
+  submenu.classList.toggle('hidden');
 });
 
 function nextSubmenu(e) {
@@ -66,7 +66,6 @@ function startSubmenu(e) {
   const selectedLi = $(e.target).closest('li')[0];
   const selectedLiDiv = selectedLi.querySelector('div');
   selectedLiDiv.classList = 'nav--arrow';
-  const submenu = document.querySelector('header > nav > ul');
   const submenuLi = [...submenu.querySelectorAll('li')];
   const submenuUl = [...submenu.querySelectorAll('ul')];
   submenuUl.forEach((ul) => (ul.classList = ''));
