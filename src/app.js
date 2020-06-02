@@ -249,17 +249,17 @@ $(document).ready(function () {
     ],
   });
   $('.selectedProduct__info--slider').slick({
-    infinite: true,
-    speed: 1,
-    slidesToShow: 6,
+    slidesToShow: 1,
     slidesToScroll: 1,
+    asNavFor: '.selectedProduct__info--sliderSide',
     responsive: [
       {
         breakpoint: breakPointLg,
         settings: {
           slidesToShow: 3,
-          slidesToScroll: 3,
+          slidesToScroll: 1,
           infinite: true,
+          arrows: true,
         },
       },
       {
@@ -268,6 +268,7 @@ $(document).ready(function () {
           slidesToShow: 2,
           slidesToScroll: 2,
           infinite: true,
+          arrows: true,
         },
       },
       {
@@ -276,8 +277,22 @@ $(document).ready(function () {
           slidesToShow: 1,
           slidesToScroll: 1,
           infinite: true,
+          arrows: true,
         },
       },
     ],
+  });
+  $('.selectedProduct__info--sliderSide').slick({
+    infinite: true,
+    // speed: 1,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    asNavFor: '.selectedProduct__info--slider',
+    vertical: true,
+    verticalSwiping: true,
+    arrows: true,
+    focusOnSelect: true,
+    outerEdgeLimit: true,
+    centerMode: true,
   });
 });

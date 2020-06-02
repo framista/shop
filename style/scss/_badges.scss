@@ -1,6 +1,6 @@
 .badge {
   a {
-    font-size: 17px;
+    font-size: 18px;
     font-weight: 900;
     text-decoration: none;
     padding: 0.5em 1em;
@@ -10,6 +10,14 @@
   &--promotion {
     a {
       background-color: $discount-bg;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .badge {
+    a {
+      font-size: 10px;
     }
   }
 }

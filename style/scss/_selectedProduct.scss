@@ -1,26 +1,106 @@
 .selectedProduct {
   padding: 10px;
   &__info {
-    padding: 10px;
-    width: 80%;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    &--nav {
+      padding-top: 10px;
+      grid-row: 1;
+      grid-column: 1/7;
+      ul {
+        @include centerFlex();
+        justify-content: flex-start;
+        padding-left: 50px;
+        list-style: none;
+        li {
+          @include centerFlex();
+          margin: 5px;
+          text-align: center;
+          a {
+            text-decoration: none;
+            color: $darkGrey;
+            font-size: 11px;
+          }
+          img {
+            width: 10px;
+            height: 10px;
+          }
+          &:last-child {
+            a {
+              color: $black;
+            }
+          }
+        }
+      }
+    }
     &--slider {
-      width: 90%;
+      grid-row: 3;
+      grid-column: 2/7;
+      max-width: 450px;
       margin: 0px auto;
       transform: translateX(-15px);
       div {
         @include centerFlex();
         transform: translateX(10px);
+        img {
+          max-width: 400px;
+        }
+      }
+    }
+    &--sliderSide {
+      padding: 20px 0px;
+      grid-row: 3;
+      grid-column: 1;
+      height: 600px;
+      max-width: 120px;
+      margin: auto;
+      overflow: hidden;
+      div {
+        @include centerFlex();
+        flex-direction: column;
+        div {
+          img {
+            max-width: 105px;
+            z-index: 10;
+          }
+        }
+      }
+      .slick-prev,
+      .slick-next {
+        left: 50%;
+        transform: translate(-50%, 0) rotate(90deg);
+      }
+      .slick-next::before {
+        display: none;
+      }
+      .slick-next {
+        top: unset;
+        bottom: 0px;
+        color: transparent;
+        background-color: transparent;
+      }
+      .slick-prev {
+        top: -20px;
       }
     }
     &--grade {
+      margin-top: 25px;
+      grid-row: 2;
+      grid-column: 4/7;
+      justify-self: end;
+      width: calc(100% - 130px);
       @include centerFlex();
+      flex-wrap: wrap;
       padding: 2em;
       .stars,
       .badge {
-        margin: 5px;
+        margin: 10px;
       }
     }
     &--model {
+      padding: 30px 0px 10px;
+      grid-row: 2;
+      grid-column: 2/5;
       @include centerFlex();
       flex-direction: column;
       h3 {

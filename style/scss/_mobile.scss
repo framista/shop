@@ -17,4 +17,28 @@
       }
     }
   }
+  .selectedProduct {
+    &__info {
+      @include centerFlex();
+      flex-direction: column;
+      text-align: center;
+      width: 90%;
+      margin: 0 auto;
+      &--slider {
+        width: 90%;
+        margin: 0 auto;
+        div {
+          img {
+            margin: 0px auto;
+          }
+        }
+      }
+      &--grade {
+        order: 2;
+      }
+      &--model {
+        order: 3;
+      }
+    }
+  }
 }
