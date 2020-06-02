@@ -1,0 +1,41 @@
+.selectedProduct {
+  padding: 10px;
+  &__info {
+    padding: 10px;
+    width: 80%;
+    &--slider {
+      width: 90%;
+      margin: 0px auto;
+      transform: translateX(-15px);
+      div {
+        @include centerFlex();
+        transform: translateX(10px);
+      }
+    }
+    &--grade {
+      @include centerFlex();
+      padding: 2em;
+      .stars,
+      .badge {
+        margin: 5px;
+      }
+    }
+    &--model {
+      @include centerFlex();
+      flex-direction: column;
+      h3 {
+        text-transform: uppercase;
+        font-size: 30px;
+        font-weight: 300;
+        line-height: 2;
+        letter-spacing: 2px;
+      }
+      p {
+        font-size: 15px;
+      }
+    }
+  }
+  &--form {
+    background-color: rosybrown;
+  }
+}

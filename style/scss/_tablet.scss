@@ -171,5 +171,21 @@
       transform: translateX(-20px);
       max-width: 500px;
     }
+    .selectedProduct {
+      &__info {
+        &--slider {
+          div {
+            flex-direction: row;
+          }
+        }
+        &--grade {
+        }
+        &--model {
+          h3 {
+            font-size: 20px;
+          }
+        }
+      }
+    }
   }
 }

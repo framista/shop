@@ -1,0 +1,15 @@
+.badge {
+  a {
+    font-size: 17px;
+    font-weight: 900;
+    text-decoration: none;
+    padding: 0.5em 1em;
+    background-color: $black;
+    color: white;
+  }
+  &--promotion {
+    a {
+      background-color: $discount-bg;
+    }
+  }
+}
