@@ -40,5 +40,14 @@
         order: 3;
       }
     }
+    &__priceSchedule {
+      &--form {
+        align-self: flex-start;
+        padding: 0px 5px;
+        .iconText {
+          padding: 8px 0px;
+        }
+      }
+    }
   }
 }

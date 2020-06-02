@@ -1,0 +1,31 @@
+.btn {
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: 13px;
+  width: 195px;
+  height: 44px;
+  background-color: $black;
+  color: $white;
+  border: none;
+  &--large {
+    width: 250px;
+    height: 60px;
+    font-size: 15px;
+    letter-spacing: 1.7px;
+  }
+  &--small {
+    width: 162px;
+    height: 38;
+    font-size: 13px;
+  }
+  &--outline {
+    background-color: $white;
+    border: 1px solid $black;
+    color: $black;
+  }
+  &--borderless {
+    background-color: $white;
+    border: none;
+    color: $black;
+  }
+}
