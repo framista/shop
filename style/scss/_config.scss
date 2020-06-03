@@ -9,6 +9,10 @@ $facebook-bg: #3a559f;
 $discount-bg: #bb2000;
 $white: #fff;
 $heightBox: 50px;
+$availableMany: #0bc149;
+$availableFew: #d9a60f;
+$availableNot: #dc3545;
+$select-bg: #c3c7c8;
 
 @mixin centerFlex() {
   display: flex;

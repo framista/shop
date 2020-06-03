@@ -27,6 +27,9 @@ const elementsToHideOnMobile = [
 function showMenuItems() {
   if (window.innerWidth < breakPointLg) {
     elementsToHideOnMobile.forEach((el) => el.classList.add('hidden'));
+    if (window.innerWidth > breakPointMd) {
+      [...menuLists].forEach((el) => el.classList.remove('hidden'));
+    }
   } else {
     elementsToHideOnMobile.forEach((el) => el.classList.remove('hidden'));
     hamburger.classList.remove('showHamburger');
@@ -284,7 +287,6 @@ $(document).ready(function () {
   });
   $('.selectedProduct__info--sliderSide').slick({
     infinite: true,
-    // speed: 1,
     slidesToShow: 4,
     slidesToScroll: 1,
     asNavFor: '.selectedProduct__info--slider',
@@ -294,5 +296,29 @@ $(document).ready(function () {
     focusOnSelect: true,
     outerEdgeLimit: true,
     centerMode: true,
+  });
+});
+
+$('.select__normal').click(function () {
+  $('.select__active').toggleClass('hidden');
+  $('.select__active li').click(function () {
+    const size = this.innerText.split(' ')[1];
+    const sizeInp = document.querySelector('#size');
+    sizeInp.innerText = size;
+    const availableAmount = ['Dostępne', 'Niedostępne', 'Ostatnie'];
+    const availableInp = document.querySelector('#available');
+    availableInp.innerText = availableAmount[parseInt(size, 10) % 3];
+    $('.select__normal--choosen-available').removeClass('not few');
+    switch (availableInp.innerText) {
+      case 'Niedostępne':
+        $('.select__normal--choosen-available').addClass('not');
+        break;
+      case 'Ostatnie':
+        $('.select__normal--choosen-available').addClass('few');
+        break;
+    }
+    $('.select__normal--notchoosen').addClass('hidden');
+    $('.select__normal--choosen').removeClass('hidden');
+    $('.select__active').addClass('hidden');
   });
 });

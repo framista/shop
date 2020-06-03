@@ -1,0 +1,79 @@
+.select {
+  background-color: $white;
+  width: 250px;
+  position: relative;
+  &__normal {
+    width: 100%;
+    height: $heightBox;
+    @include centerFlex();
+    justify-content: space-between;
+    padding: 0px 1.5em;
+    border: 1px solid $select-bg;
+    cursor: pointer;
+    &--notchoosen {
+      font-size: 14px;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    &--choosen {
+      @include centerFlex();
+      &-available {
+        width: 9px;
+        height: 9px;
+        background-color: $availableMany;
+        border-radius: 50%;
+        margin-right: 1em;
+      }
+      .few {
+        background-color: $availableFew;
+      }
+      .not {
+        background-color: $availableNot;
+      }
+      &-size {
+        font-size: 13px;
+        #size {
+          font-weight: 900;
+          margin-right: 1em;
+        }
+        #available {
+          margin-left: 1em;
+        }
+      }
+    }
+    &--arrow {
+      @include centerFlex();
+      img {
+        transform: rotate(90deg);
+        height: 15px;
+        width: 20px;
+      }
+    }
+  }
+  &__active {
+    position: absolute;
+    width: 250px;
+    background-color: $white;
+    border: 1px solid $select-bg;
+    border-top: none;
+    ul {
+      @include centerFlex();
+      flex-direction: column;
+      align-items: flex-start;
+      list-style: none;
+      font-size: 14px;
+      font-family: Arial, Helvetica, sans-serif;
+      padding: 5px;
+      li {
+        width: 100%;
+        padding: 10px;
+        @include centerFlex();
+        justify-content: flex-start;
+        height: $heightBox;
+        cursor: pointer;
+        &:hover {
+          background-color: $select-bg;
+        }
+      }
+    }
+  }
+}
