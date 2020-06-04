@@ -21,7 +21,6 @@
       }
       .search {
         width: 100%;
-        background-color: rosybrown;
         form {
           border: none;
           input {
@@ -193,6 +192,10 @@
           order: 2;
           padding: 0.25em;
           margin: 0;
+          flex-direction: row;
+          .badge {
+            margin: 0px 10px;
+          }
         }
         &--model {
           padding: 0.5em;

@@ -1,0 +1,122 @@
+.detailProduct {
+  padding: 20px 0px;
+  &__producer {
+    background-color: $grey;
+    padding: 30px 20px 30px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    overflow: hidden;
+    &--table {
+      table {
+        width: 100%;
+        font-size: 15px;
+        td {
+          max-width: 185px;
+          padding: 5px 10px 5px 0px;
+        }
+        td:nth-child(1) {
+          font-weight: 600;
+          padding-left: 0px;
+        }
+        td:nth-child(2) {
+          padding-left: 15px;
+          a {
+            text-decoration: none;
+            font-size: 15px;
+            color: $discount-bg;
+          }
+          img {
+            height: 13px;
+            width: 13px;
+          }
+        }
+        tr:last-child {
+          td {
+            font-weight: 300;
+            padding-top: 30px;
+            line-height: 1.8;
+          }
+        }
+        #table-question {
+          background-color: $white;
+          font-size: 11px;
+          padding: 1px 4px;
+          border-radius: 50%;
+          font-weight: 900;
+          color: $black;
+        }
+      }
+    }
+  }
+  &__product {
+    width: 66%;
+    @include centerFlex();
+    flex-direction: column;
+    align-items: flex-start;
+    &--images {
+      width: 100%;
+      @include centerFlex();
+      img {
+        width: 250px;
+        padding: 10px 30px;
+      }
+    }
+    h3 {
+      padding-left: 10%;
+      text-transform: uppercase;
+      font-weight: 600;
+      font-size: 25px;
+      padding-top: 50px;
+      padding-bottom: 25px;
+      letter-spacing: 1.4px;
+    }
+    .slider--accessories {
+      width: 80%;
+      margin: 0 auto;
+      div {
+        @include centerFlex();
+        .img {
+          background-color: $white;
+          img {
+            max-width: 40px;
+          }
+        }
+      }
+      .content {
+        @include centerFlex();
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 10px;
+        max-width: 90%;
+        a {
+          text-decoration: none;
+          font-size: 13px;
+          color: $black;
+        }
+        p {
+          font-size: 13px;
+          font-weight: 900;
+        }
+      }
+      .slick-next {
+        transform: translate(-40px, -10px);
+      }
+    }
+  }
+}
+@media (max-width: 768px) {
+  .detailProduct {
+    &__producer {
+      align-items: center;
+      &--table {
+        width: 90%;
+      }
+    }
+    &__product {
+      &--images {
+        flex-direction: column;
+      }
+    }
+  }
+}
