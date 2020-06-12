@@ -1,0 +1,113 @@
+.opinions {
+  width: 80%;
+  margin: 20px auto;
+  .headline {
+    width: 100%;
+    font-size: 25px;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 3;
+    font-weight: 300;
+  }
+  &__average {
+    font-size: 25px;
+    .stars {
+      justify-content: flex-start;
+    }
+    &--summary {
+      font-size: 13px;
+      margin: 10px 0;
+    }
+    &--rates {
+      font-size: 15px;
+      margin: 40px 0px;
+      .rate {
+        @include centerFlex();
+        justify-content: space-between;
+        margin: 10px 0px;
+        &__number {
+          width: 5px;
+        }
+        &__star {
+          margin: 0px 7px;
+        }
+        &__bar {
+          width: 100%;
+          height: 5px;
+          border-radius: 5px;
+          background-color: $grey;
+          &--active {
+            background-color: $black;
+            width: 30%;
+            height: 5px;
+            border-radius: 5px;
+          }
+        }
+        &__count {
+          width: 35px;
+          text-align: right;
+        }
+      }
+    }
+    &--add {
+      a {
+        text-decoration: none;
+        padding: 1em 1.5em;
+      }
+    }
+    &--guide {
+      margin-top: 20px;
+      a {
+        color: $black;
+        font-size: 13px;
+      }
+    }
+  }
+  &__lists {
+    padding-left: 80px;
+    max-height: 300px;
+    overflow: auto;
+    .list__item {
+      padding: 10px;
+      border-bottom: 2px solid $grey;
+      &--header {
+        font-size: 14px;
+        .stars {
+          justify-content: flex-start;
+        }
+      }
+      &--body {
+        padding: 20px 0px;
+        font-size: 13px;
+      }
+      &--footer {
+        font-size: 13px;
+        color: $darkGrey;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        .opinion__rate {
+          a {
+            text-decoration: none;
+            span {
+              &:before {
+                content: '(';
+              }
+              &:after {
+                content: ')';
+              }
+            }
+          }
+          &--yes {
+            color: $black;
+            padding: 0px 5px 0px 20px;
+          }
+          &--no {
+            color: $darkGrey;
+            padding: 0px 0px 0px 5px;
+          }
+        }
+      }
+    }
+  }
+}

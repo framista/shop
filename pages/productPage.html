@@ -571,19 +571,19 @@
                 <li>
                   <a href="" title="">Obuwie damskie</a>
                 </li>
-                <li><img src="../style/images/arrowNext.svg" /></li>
+                <li><img src="../style/images/arrowNext.svg" alt="arrow" /></li>
                 <li>
                   <a href="" title="">Kozaki i botki damskie</a>
                 </li>
-                <li><img src="../style/images/arrowNext.svg" /></li>
+                <li><img src="../style/images/arrowNext.svg" alt="arrow" /></li>
                 <li>
                   <a href="" title="">Botki</a>
                 </li>
-                <li><img src="../style/images/arrowNext.svg" /></li>
+                <li><img src="../style/images/arrowNext.svg" alt="arrow" /></li>
                 <li>
                   <a href="" title="">Obuwie damskie</a>
                 </li>
-                <li><img src="../style/images/arrowNext.svg" /></li>
+                <li><img src="../style/images/arrowNext.svg" alt="arrow" /></li>
                 <li>
                   <a href="" title="">Twinset Botki Texano 192TCP10G</a>
                 </li>
@@ -669,7 +669,11 @@
                 </a>
               </div>
             </div>
-            <form class="selectedProduct__priceSchedule--form">
+            <form
+              class="selectedProduct__priceSchedule--form"
+              method="POST"
+              action=""
+            >
               <p class="price">289,99 zł</p>
               <div class="priceold">
                 <p class="priceold--amount">321,00 zł</p>
@@ -717,11 +721,9 @@
               </div>
 
               <div class="submit">
-                <input
-                  type="submit"
-                  class="btn btn--large"
-                  value="dodaj do koszyka"
-                />
+                <button type="submit" class="btn btn--large">
+                  dodaj do koszyka
+                </button>
                 <a href="" title="">
                   <img src="../style/images/heart.svg" alt="heart" />
                 </a>
@@ -743,6 +745,7 @@
               <h5>Dostępne kolory</h5>
               <div class="models">
                 <div>
+                  <!-- zamiast div link -->
                   <img src="../style/images/shoeBlack2.png" alt="shoe2" />
                   <p>Czarny</p>
                 </div>
@@ -944,61 +947,230 @@
             <div><img src="../style/images/img4.png" alt="img4" /></div>
           </div>
         </section>
-        <section class="container__row benefit">
+
+        <section class="container__row opinions">
+          <h2 class="headline">opinie naszych klientów</h2>
+          <div class="container__col-12 container__col-md-4 opinions__average">
+            <div class="opinions__average--note">
+              <div class="stars">
+                <div class="stars--icon">
+                  <i class="icon-star stars--selected"></i>
+                  <i class="icon-star stars--selected"></i>
+                  <i class="icon-star stars--selected"></i>
+                  <i class="icon-star stars--selected"></i>
+                  <i class="icon-star stars--selected"></i>
+                </div>
+                <div class="stars--note">4.5</div>
+              </div>
+            </div>
+            <div class="opinions__average--summary">
+              Liczba wystawionych opinii: 7
+            </div>
+            <div class="opinions__average--rates">
+              <div class="rate">
+                <span class="rate__number">5</span>
+                <span class="rate__star"
+                  ><i class="icon-star stars--selected"></i>
+                </span>
+                <div class="rate__bar">
+                  <div class="rate__bar--active"></div>
+                </div>
+                <span class="rate__count">(21)</span>
+              </div>
+              <div class="rate">
+                <span class="rate__number">4</span>
+                <span class="rate__star"
+                  ><i class="icon-star stars--selected"></i>
+                </span>
+                <div class="rate__bar">
+                  <div class="rate__bar--active"></div>
+                </div>
+                <span class="rate__count">(5)</span>
+              </div>
+              <div class="rate">
+                <span class="rate__number">3</span>
+                <span class="rate__star"
+                  ><i class="icon-star stars--selected"></i>
+                </span>
+                <div class="rate__bar">
+                  <div class="rate__bar--active"></div>
+                </div>
+                <span class="rate__count">(0)</span>
+              </div>
+              <div class="rate">
+                <span class="rate__number">2</span>
+                <span class="rate__star"
+                  ><i class="icon-star stars--selected"></i>
+                </span>
+                <div class="rate__bar">
+                  <div class="rate__bar--active"></div>
+                </div>
+                <span class="rate__count">(0)</span>
+              </div>
+              <div class="rate">
+                <span class="rate__number">1</span>
+                <span class="rate__star"
+                  ><i class="icon-star stars--selected"></i>
+                </span>
+                <div class="rate__bar">
+                  <div class="rate__bar--active"></div>
+                </div>
+                <span class="rate__count">(1)</span>
+              </div>
+            </div>
+            <div class="opinions__average--add">
+              <a href="" title="" class="btn btn--large">dodaj swoją opinię</a>
+            </div>
+            <div class="opinions__average--guide">
+              <a href="" title="">Pokaż wszystkie opinie</a>
+            </div>
+          </div>
+          <div class="container__col-12 container__col-md-8 opinions__lists">
+            <div class="list__item">
+              <div class="list__item--header">
+                <div class="stars">
+                  <div class="stars--icon">
+                    <i class="icon-star stars--selected"></i>
+                    <i class="icon-star stars--selected"></i>
+                    <i class="icon-star stars--selected"></i>
+                    <i class="icon-star stars--selected"></i>
+                    <i class="icon-star stars--selected"></i>
+                  </div>
+                  <div class="stars--note">5/5</div>
+                </div>
+              </div>
+              <div class="list__item--body">
+                Towar zgodny z opisem. Szybka wysyłka. Gorąco polecam.
+              </div>
+              <div class="list__item--footer">
+                <span class="opinion__author">Wera, Szczecin, Polska</span>
+                <div class="opinion__rate">
+                  <span>Czy ta opinia była pomocna?</span>
+                  <a href="" title="" class="opinion__rate--yes"
+                    ><i class="icon-thumbs-up-alt"></i>Tak
+                    <span class="opinion__rate--count">3</span>
+                  </a>
+                  <a href="opinion__rate--no" title="" class="opinion__rate--no"
+                    ><i class="icon-thumbs-down"></i>Nie
+                    <span class="opinion__rate--count">0</span></a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="list__item">
+              <div class="list__item--header">
+                <div class="stars">
+                  <div class="stars--icon">
+                    <i class="icon-star stars--selected"></i>
+                    <i class="icon-star stars--selected"></i>
+                    <i class="icon-star stars--selected"></i>
+                    <i class="icon-star stars--selected"></i>
+                    <i class="icon-star stars--selected"></i>
+                  </div>
+                  <div class="stars--note">5/5</div>
+                </div>
+              </div>
+              <div class="list__item--body">
+                Wszystko w porządku, porządny opis, długa gwarancja utwierdziły
+                mnie w podjęciu decyzji o zakupie tutaj. Polecam!
+              </div>
+              <div class="list__item--footer">
+                <span class="opinion__author">Bartłomiej, Opole, Polska</span>
+                <div class="opinion__rate">
+                  <span>Czy ta opinia była pomocna?</span>
+                  <a href="" title="" class="opinion__rate--yes"
+                    ><i class="icon-thumbs-up-alt"></i>Tak
+                    <span class="opinion__rate--count">3</span>
+                  </a>
+                  <a href="opinion__rate--no" title="" class="opinion__rate--no"
+                    ><i class="icon-thumbs-down"></i>Nie
+                    <span class="opinion__rate--count">0</span></a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="list__item">
+              <div class="list__item--header">
+                <div class="stars">
+                  <div class="stars--icon">
+                    <i class="icon-star stars--selected"></i>
+                    <i class="icon-star stars--selected"></i>
+                    <i class="icon-star stars--selected"></i>
+                    <i class="icon-star stars--selected"></i>
+                    <i class="icon-star stars--selected"></i>
+                  </div>
+                  <div class="stars--note">5/5</div>
+                </div>
+              </div>
+              <div class="list__item--body">
+                Wszystko w porządku, porządny opis, długa gwarancja utwierdziły
+                mnie w podjęciu decyzji o zakupie tutaj. Polecam!
+              </div>
+              <div class="list__item--footer">
+                <span class="opinion__author">Bartłomiej, Opole, Polska</span>
+                <div class="opinion__rate">
+                  <span>Czy ta opinia była pomocna?</span>
+                  <a href="" title="" class="opinion__rate--yes"
+                    ><i class="icon-thumbs-up-alt"></i>Tak
+                    <span class="opinion__rate--count">3</span>
+                  </a>
+                  <a href="opinion__rate--no" title="" class="opinion__rate--no"
+                    ><i class="icon-thumbs-down"></i>Nie
+                    <span class="opinion__rate--count">0</span></a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="container_row product">
           <div class="container__col-12">
-            <h2>dlaczego warto kupować w armodo</h2>
+            <p id="product__p">spodobają ci się również</p>
           </div>
-          <div class="container__col-6 container__col-md-3">
-            <div class="benefit__item">
-              <a href="#" title="">Korzyść</a>
+          <div class="carousel slider--products">
+            <div class="product__item">
+              <a href="#" title=""
+                ><img src="../style/images/shoe1.png" alt="shoe1"
+              /></a>
+              <div class="product__item--content">
+                <a href="#" title="">botki karino</a>
+                <p class="model">3019/076-f czarny</p>
+                <p class="price">289,00 zł</p>
+              </div>
             </div>
-          </div>
-          <div class="container__col-6 container__col-md-3">
-            <div class="benefit__item">
-              <a href="#" title="">Korzyść</a>
+            <div class="product__item">
+              <a href="#" title=""
+                ><img src="../style/images/shoe2.png" alt="shoe2"
+              /></a>
+              <div class="product__item--content">
+                <a href="#" title="">botki karino</a>
+                <p class="model">3019/076-f czarny</p>
+                <p class="price">289,00 zł</p>
+              </div>
             </div>
-          </div>
-          <div class="container__col-6 container__col-md-3">
-            <div class="benefit__item">
-              <a href="#" title="">Korzyść</a>
+            <div class="product__item">
+              <a href="#" title=""
+                ><img src="../style/images/shoe3.png" alt="shoe3"
+              /></a>
+              <div class="product__item--content">
+                <a href="#" title="">botki karino</a>
+                <p class="model">3019/076-f czarny</p>
+                <p class="price price--discount">
+                  289,00 zł <sup>289,00 zł</sup>
+                </p>
+              </div>
             </div>
-          </div>
-          <div class="container__col-6 container__col-md-3">
-            <div class="benefit__item">
-              <a href="#" title="">Korzyść</a>
+            <div class="product__item">
+              <a href="#" title=""
+                ><img src="../style/images/shoe4.png" alt="shoe4"
+              /></a>
+              <div class="product__item--content">
+                <a href="#" title="">Botki carini</a>
+                <p class="model">3019/076-f czarny</p>
+                <p class="price">289,00 zł</p>
+              </div>
             </div>
-          </div>
-          <div class="container__col-12">
-            <p>
-              SEO Wygodne botki marki Carinii. Wierzchnią część butów tworzy
-              Skóra naturalna - Zamsz. Botki posiadają obcas o wysokości 9,5 cm.
-              Botki posiadają wyściółkę, to materiał, skóra. Wkładka to skóra.
-              Trwała podeszwa to wysokogatunkowe tworzywo. Kobiecy fason, który
-              sprawdzi się przy różnej pogodzie. Wygodne botki marki Carinii.
-              Wierzchnią część butów tworzy Skóra naturalna - Zamsz. Botki
-              posiadają obcas o wysokości 9,5 cm. Botki posiadają wyściółkę, to
-              materiał, skóra. Wkładka to skóra. Trwała podeszwa to
-              wysokogatunkowe tworzywo. Kobiecy fason, który sprawdzi się przy
-              różnej pogodzie. Wygodne botki marki Carinii. Wierzchnią część
-              butów tworzy Skóra naturalna - Zamsz. Botki posiadają obcas o
-              wysokości 9,5 cm. Botki posiadają wyściółkę, to materiał, skóra.
-              Wkładka to skóra. Trwała podeszwa to wysokogatunkowe tworzywo.
-              Kobiecy fason, który sprawdzi się przy różnej pogodzie. Wygodne
-              botki marki Carinii. Wierzchnią część butów tworzy Skóra naturalna
-              - Zamsz. Botki posiadają obcas o wysokości 9,5 cm. Botki posiadają
-              wyściółkę, to materiał, skóra. Wkładka to skóra. Trwała podeszwa
-              to wysokogatunkowe tworzywo. Kobiecy fason, który sprawdzi się
-              przy różnej pogodzie. Wygodne botki marki Carinii. Wierzchnią
-              część butów tworzy Skóra naturalna - Zamsz. Botki posiadają obcas
-              o wysokości 9,5 cm. Botki posiadają wyściółkę, to materiał, skóra.
-              Wkładka to skóra. Trwała podeszwa to wysokogatunkowe tworzywo.
-              Kobiecy fason, który sprawdzi się przy różnej pogodzie. Wygodne
-              botki marki Carinii. Wierzchnią część butów tworzy Skóra naturalna
-              - Zamsz. Botki posiadają obcas o wysokości 9,5 cm. Botki posiadają
-              wyściółkę, to materiał, skóra. Wkładka to skóra. Trwała podeszwa
-              to wysokogatunkowe tworzywo. Kobiecy fason, który sprawdzi się
-              przy różnej pogodzie.
-            </p>
           </div>
         </section>
       </main>
