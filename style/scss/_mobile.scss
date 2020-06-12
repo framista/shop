@@ -16,38 +16,57 @@
         transform: translateX(10px);
       }
     }
-  }
-  .selectedProduct {
-    &__info {
-      @include centerFlex();
-      flex-direction: column;
-      text-align: center;
-      width: 90%;
-      margin: 0 auto;
-      &--slider {
+
+    .selectedProduct {
+      &__info {
+        @include centerFlex();
+        flex-direction: column;
+        text-align: center;
         width: 90%;
         margin: 0 auto;
-        div {
-          img {
-            margin: 0px auto;
+        &--slider {
+          width: 90%;
+          margin: 0 auto;
+          div {
+            img {
+              margin: 0px auto;
+            }
+          }
+        }
+        &--grade {
+          order: 2;
+        }
+        &--model {
+          order: 3;
+        }
+      }
+      &__priceSchedule {
+        &--form {
+          align-self: flex-start;
+          padding: 0px 5px;
+          margin-left: 25px;
+          .iconText {
+            padding: 8px 0px;
           }
         }
       }
-      &--grade {
-        order: 2;
-      }
-      &--model {
-        order: 3;
-      }
     }
-    &__priceSchedule {
-      &--form {
-        align-self: flex-start;
-        padding: 0px 5px;
-        margin-left: 25px;
-        .iconText {
-          padding: 8px 0px;
+    .opinions {
+      &__average {
+        &--add {
+          text-align: center;
+          a {
+            font-size: 17px;
+            padding: 1em 7em;
+          }
         }
+        &--guide {
+          text-align: center;
+          margin-bottom: 10px;
+        }
+      }
+      &__lists {
+        padding-left: 0px;
       }
     }
   }

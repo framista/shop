@@ -29,7 +29,7 @@
           width: 5px;
         }
         &__star {
-          margin: 0px 7px;
+          margin: 0px 15px;
         }
         &__bar {
           width: 100%;
@@ -46,6 +46,12 @@
         &__count {
           width: 35px;
           text-align: right;
+          &::before {
+            content: '(';
+          }
+          &::after {
+            content: ')';
+          }
         }
       }
     }
