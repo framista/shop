@@ -25,6 +25,7 @@
         @include centerFlex();
         justify-content: space-between;
         margin: 10px 0px;
+        cursor: pointer;
         &__number {
           width: 5px;
         }

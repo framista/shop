@@ -10,6 +10,7 @@ const breakPointSm = 576;
 const breakPointMd = 768;
 const breakPointLg = 951;
 const prevWidth = window.innerWidth;
+const rateStars = [...document.querySelectorAll('.rate')];
 // const breakPointXl = 1200;
 
 let levelMenu = 0;
@@ -361,4 +362,27 @@ $('.btn').click(function (e) {
   if (!$('.select__normal--notchoosen').hasClass('hidden')) {
     $('.select__normal--error').removeClass('hidden');
   }
+});
+
+// action for selected rate stars for product card in order to see customer's opinions
+rateStars.forEach((rate) => {
+  rate.addEventListener('click', (e) => {
+    const selectedRate = e.currentTarget.getAttribute('data-rate');
+    const selectedRateAmount = e.currentTarget.lastElementChild.innerText;
+    const noRate = document.querySelector('#no-rate');
+    const allOpinions = [...document.querySelectorAll('.list__item')];
+    if (selectedRateAmount === '0') {
+      noRate.classList.remove('hidden');
+      allOpinions.forEach((opinion) => opinion.classList.add('hidden'));
+    } else {
+      noRate.classList.add('hidden');
+      allOpinions.forEach((opinion) => {
+        if (opinion.dataset.rateOpinion === selectedRate) {
+          opinion.classList.remove('hidden');
+        } else {
+          opinion.classList.add('hidden');
+        }
+      });
+    }
+  });
 });
