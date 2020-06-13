@@ -386,3 +386,14 @@ rateStars.forEach((rate) => {
     }
   });
 });
+
+// set correct width of active bar for rates
+const totalUserOpinion = document
+  .querySelector('.opinions__average--summary')
+  .innerText.split(': ')[1];
+rateStars.forEach((rate) => {
+  const count = rate.lastElementChild.innerText;
+  const rateWidth = (count / totalUserOpinion) * 100;
+  const barElement = rate.querySelector('.rate__bar--active');
+  barElement.style.width = `${rateWidth}%`;
+});
