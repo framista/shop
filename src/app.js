@@ -9,9 +9,8 @@ const hamburger = document.querySelector('#contact--hamburger');
 const breakPointSm = 576;
 const breakPointMd = 768;
 const breakPointLg = 951;
-const prevWidth = window.innerWidth;
-const rateStars = [...document.querySelectorAll('.rate')];
 // const breakPointXl = 1200;
+const prevWidth = window.innerWidth;
 
 let levelMenu = 0;
 
@@ -160,6 +159,39 @@ submenuLiTemp.forEach((li) => {
     }
   });
 });
+
+/*
+  select to choose the size of shoe
+*/
+
+$('.select__normal').click(function () {
+  $('.select__active').toggleClass('hidden');
+  $('.select__normal--error').addClass('hidden');
+  $('.select__active li').click(function () {
+    const size = this.innerText.split(' ')[1];
+    const sizeInp = document.querySelector('#size');
+    sizeInp.innerText = size;
+    const availableAmount = ['Dostępne', 'Niedostępne', 'Ostatnie'];
+    const availableInp = document.querySelector('#available');
+    availableInp.innerText = availableAmount[parseInt(size, 10) % 3];
+    $('.select__normal--choosen-available').removeClass('not few');
+    switch (availableInp.innerText) {
+      case 'Niedostępne':
+        $('.select__normal--choosen-available').addClass('not');
+        break;
+      case 'Ostatnie':
+        $('.select__normal--choosen-available').addClass('few');
+        break;
+    }
+    $('.select__normal--notchoosen').addClass('hidden');
+    $('.select__normal--choosen').removeClass('hidden');
+    $('.select__active').addClass('hidden');
+  });
+});
+
+/*
+  sliders
+*/
 
 $(document).ready(function () {
   $('.slider--shoes').slick({
@@ -330,70 +362,4 @@ $(document).ready(function () {
       },
     ],
   });
-});
-
-$('.select__normal').click(function () {
-  $('.select__active').toggleClass('hidden');
-  $('.select__normal--error').addClass('hidden');
-  $('.select__active li').click(function () {
-    const size = this.innerText.split(' ')[1];
-    const sizeInp = document.querySelector('#size');
-    sizeInp.innerText = size;
-    const availableAmount = ['Dostępne', 'Niedostępne', 'Ostatnie'];
-    const availableInp = document.querySelector('#available');
-    availableInp.innerText = availableAmount[parseInt(size, 10) % 3];
-    $('.select__normal--choosen-available').removeClass('not few');
-    switch (availableInp.innerText) {
-      case 'Niedostępne':
-        $('.select__normal--choosen-available').addClass('not');
-        break;
-      case 'Ostatnie':
-        $('.select__normal--choosen-available').addClass('few');
-        break;
-    }
-    $('.select__normal--notchoosen').addClass('hidden');
-    $('.select__normal--choosen').removeClass('hidden');
-    $('.select__active').addClass('hidden');
-  });
-});
-
-$('.btn').click(function (e) {
-  e.preventDefault();
-  if (!$('.select__normal--notchoosen').hasClass('hidden')) {
-    $('.select__normal--error').removeClass('hidden');
-  }
-});
-
-// action for selected rate stars for product card in order to see customer's opinions
-rateStars.forEach((rate) => {
-  rate.addEventListener('click', (e) => {
-    const selectedRate = e.currentTarget.getAttribute('data-rate');
-    const selectedRateAmount = e.currentTarget.lastElementChild.innerText;
-    const noRate = document.querySelector('#no-rate');
-    const allOpinions = [...document.querySelectorAll('.list__item')];
-    if (selectedRateAmount === '0') {
-      noRate.classList.remove('hidden');
-      allOpinions.forEach((opinion) => opinion.classList.add('hidden'));
-    } else {
-      noRate.classList.add('hidden');
-      allOpinions.forEach((opinion) => {
-        if (opinion.dataset.rateOpinion === selectedRate) {
-          opinion.classList.remove('hidden');
-        } else {
-          opinion.classList.add('hidden');
-        }
-      });
-    }
-  });
-});
-
-// set correct width of active bar for rates
-const totalUserOpinion = document
-  .querySelector('.opinions__average--summary')
-  .innerText.split(': ')[1];
-rateStars.forEach((rate) => {
-  const count = rate.lastElementChild.innerText;
-  const rateWidth = (count / totalUserOpinion) * 100;
-  const barElement = rate.querySelector('.rate__bar--active');
-  barElement.style.width = `${rateWidth}%`;
 });

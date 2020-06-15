@@ -140,9 +140,13 @@
       padding: 0px 10px 10px 60px;
       background-color: $grey;
       .price {
+        margin-top: 10px;
         font-size: 40px;
         font-weight: 900;
         color: $discount-bg;
+        &::after {
+          content: ' zł';
+        }
       }
       .priceold {
         padding: 8px 0px 15px;
@@ -154,6 +158,9 @@
           font-size: 25px;
           margin-right: 15px;
           text-decoration: line-through;
+          &::after {
+            content: ' zł';
+          }
         }
         &--details {
           font-size: 13px;
@@ -195,9 +202,16 @@
         }
       }
     }
+    &--close {
+      display: flex;
+      justify-content: flex-end;
+      padding: 0px 25px;
+      font-size: 50px;
+      font-weight: 900;
+      cursor: pointer;
+    }
     &--availableColor {
       padding: 30px 10px 20px 60px;
-
       h5 {
         text-transform: uppercase;
         font-size: 25px;

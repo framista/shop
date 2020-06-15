@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "name": "Botki karino",
+    "model": "3019/076-F czarny",
+    "oldPrice": "321,00",
+    "price": "289,99",
+    "saving": "Oszczędzasz 10% (22,56zł)",
+    "grade": 4.5,
+    "img1": "../style/images/shoe1.png"
+  },
+  {
+    "id": 2,
+    "name": "Srebrne sznurowane",
+    "model": "3019/076-F srebrne",
+    "oldPrice": "121,00",
+    "price": "89,99",
+    "saving": "Oszczędzasz 5% (12,99zł)",
+    "grade": 2.5,
+    "img1": "./style/images/shoe2.png"
+  },
+  {
+    "id": 3,
+    "name": "Kozaki jesienne",
+    "model": "1111/076-F czarny",
+    "oldPrice": "221,00",
+    "price": "159,99",
+    "saving": "Oszczędzasz 17% (82,56zł)",
+    "grade": 5,
+    "img1": "../style/images/shoe3.png"
+  },
+  {
+    "id": 4,
+    "name": "Szpilki jesienne",
+    "model": "3019/076-F czerwony",
+    "oldPrice": "431,00",
+    "price": "389,99",
+    "saving": "Oszczędzasz 14% (42,56zł)",
+    "grade": 3.5,
+    "img1": "../style/images/shoe4.png"
+  }
+]
