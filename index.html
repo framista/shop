@@ -702,6 +702,11 @@
           class="container__row selectedProduct popup-product popup-product--active"
         >
           <div
+            id="popup-waiting"
+            class="popup-product--waiting"
+            data-popup-waiting="message"
+          ></div>
+          <div
             class="container__col-12 container__col-lg-8 selectedProduct__info"
           >
             <div class="selectedProduct__info--sliderSide">
@@ -835,7 +840,11 @@
               </div>
 
               <div class="submit">
-                <button type="submit" class="btn btn--large">
+                <button
+                  id="popup-product-add"
+                  type="submit"
+                  class="btn btn--large"
+                >
                   dodaj do koszyka
                 </button>
                 <a href="" title="">
