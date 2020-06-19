@@ -19,7 +19,7 @@ function removeOpinions(opinionsContainer) {
 function setActiveStars(grade, starsContainer) {
   const popupIconsStar = starsContainer.querySelectorAll('i');
   popupIconsStar.forEach((icon) => icon.classList.remove('stars--selected'));
-  for (let i = 0; i < grade; i++) {
+  for (let i = 0; i < Math.floor(grade); i++) {
     popupIconsStar[i].classList.add('stars--selected');
   }
 }
@@ -55,6 +55,17 @@ function updateRates(grade) {
 }
 
 /*
+  count mean value of array with amount of particulat rate
+*/
+function getMeanRate(tab, total) {
+  const particularGrades = [...tab].reverse();
+  const grades = particularGrades.map((value, index) => value * (index + 1));
+  const sum = grades.reduce((a, b) => a + b, 0);
+  const mean = sum / total;
+  return Math.round(mean * 10) / 10;
+}
+
+/*
   set amount of opinions for all rates and update width of rates bar
 */
 function updateStars() {
@@ -63,6 +74,15 @@ function updateStars() {
     .map((i) => opinions.reduce((n, opinion) => n + (opinion.grade === i), 0))
     .reverse();
   const totalUserOpinion = amountParticularRates.reduce((a, b) => a + b, 0);
+  const meanRate = getMeanRate(amountParticularRates, totalUserOpinion);
+  const meanRateElement = document.querySelector(
+    '.opinions__average--note .stars--note'
+  );
+  meanRateElement.innerText = meanRate;
+  const starsContainer = document.querySelector(
+    '.opinions__average--note .stars--icon'
+  );
+  setActiveStars(meanRate, starsContainer);
   document.querySelector(
     '.opinions__average--summary'
   ).innerText = `Liczba wystawionych opinii: ${totalUserOpinion}`;
