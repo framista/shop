@@ -14,6 +14,17 @@ function removeOpinions(opinionsContainer) {
 }
 
 /*
+  set stars, to be shown as selected or notselected
+*/
+function setActiveStars(grade, starsContainer) {
+  const popupIconsStar = starsContainer.querySelectorAll('i');
+  popupIconsStar.forEach((icon) => icon.classList.remove('stars--selected'));
+  for (let i = 0; i < grade; i++) {
+    popupIconsStar[i].classList.add('stars--selected');
+  }
+}
+
+/*
   add opinions with selected grade to container with users opinions
 */
 function updateRates(grade) {
@@ -28,6 +39,8 @@ function updateRates(grade) {
     item.querySelector(
       '.stars--note'
     ).innerText = `${opinion.grade}/${opinion.grade}`;
+    const userStarsConteiner = item.querySelector('.stars--icon');
+    setActiveStars(opinion.grade, userStarsConteiner);
     item.querySelector('.list__item--body').innerText = opinion.content;
     const { name, city, country } = opinion.author;
     item.querySelector(
@@ -105,19 +118,6 @@ rateStars.forEach((rate) => {
       updateRates(parseInt(selectedRate, 10));
     }
   });
-});
-
-/*
- set correct width of active bar for rates
-*/
-const totalUserOpinion = document
-  .querySelector('.opinions__average--summary')
-  .innerText.split(': ')[1];
-rateStars.forEach((rate) => {
-  const count = rate.lastElementChild.innerText;
-  const rateWidth = (count / totalUserOpinion) * 100;
-  const barElement = rate.querySelector('.rate__bar--active');
-  barElement.style.width = `${rateWidth}%`;
 });
 
 /*
