@@ -14,6 +14,17 @@
         }
       },
       {
+        "content": "Jestem zadowolona z zakupu. Wygodne obuwie, sprawna wysyłka",
+        "grade": 4,
+        "yesAmount": 1,
+        "noAmount": 0,
+        "author": {
+          "name": "Matylda",
+          "city": "Jałowiec",
+          "country": "Polska"
+        }
+      },
+      {
         "content": "Jak na tą cenę, to może być",
         "grade": 4,
         "yesAmount": 5,
@@ -54,6 +65,219 @@
         "author": {
           "name": "Monika",
           "city": "Kraków",
+          "country": "Polska"
+        }
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "opinions": [
+      {
+        "content": "Ciekawe obuwie. Sklep warty polecenia",
+        "grade": 5,
+        "yesAmount": 3,
+        "noAmount": 1,
+        "author": {
+          "name": "Wiki",
+          "city": "Wrocław",
+          "country": "Polska"
+        }
+      },
+      {
+        "content": "Jestem zadowolona z zakupu. Wygodne obuwie, sprawna wysyłka",
+        "grade": 4,
+        "yesAmount": 1,
+        "noAmount": 0,
+        "author": {
+          "name": "Matylda",
+          "city": "Jałowiec",
+          "country": "Polska"
+        }
+      },
+      {
+        "content": "Jak na tą cenę, to spodziewałam się lepszej jakości produktu",
+        "grade": 1,
+        "yesAmount": 0,
+        "noAmount": 9,
+        "author": {
+          "name": "Klaudia",
+          "city": "Poznań",
+          "country": "Polska"
+        }
+      },
+      {
+        "content": "Bardzo wygodne buty",
+        "grade": 5,
+        "yesAmount": 3,
+        "noAmount": 6,
+        "author": {
+          "name": "Daria",
+          "city": "Sopot",
+          "country": "Polska"
+        }
+      },
+      {
+        "content": "Uwielbiam te buty",
+        "grade": 5,
+        "yesAmount": 6,
+        "noAmount": 2,
+        "author": {
+          "name": "Dominika",
+          "city": "Warszawa",
+          "country": "Polska"
+        }
+      },
+      {
+        "content": "Kolor zupełnie inny niż na zdjęciu i do tego słabiej jakości materiał",
+        "grade": 2,
+        "yesAmount": 4,
+        "noAmount": 3,
+        "author": {
+          "name": "Monika",
+          "city": "Sosnowiec",
+          "country": "Polska"
+        }
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "opinions": [
+      {
+        "content": "Ciekawe obuwie. Sklep warty polecenia",
+        "grade": 5,
+        "yesAmount": 3,
+        "noAmount": 1,
+        "author": {
+          "name": "Wiki",
+          "city": "Wrocław",
+          "country": "Polska"
+        }
+      },
+      {
+        "content": "Jestem zadowolona z zakupu. Wygodne obuwie, sprawna wysyłka",
+        "grade": 5,
+        "yesAmount": 1,
+        "noAmount": 0,
+        "author": {
+          "name": "Kasia",
+          "city": "Warszawa",
+          "country": "Polska"
+        }
+      },
+      {
+        "content": "Polecam sklep",
+        "grade": 4,
+        "yesAmount": 3,
+        "noAmount": 1,
+        "author": {
+          "name": "Klaudia",
+          "city": "Poznań",
+          "country": "Polska"
+        }
+      },
+      {
+        "content": "Bardzo wygodne buty",
+        "grade": 5,
+        "yesAmount": 3,
+        "noAmount": 6,
+        "author": {
+          "name": "Daria",
+          "city": "Sopot",
+          "country": "Polska"
+        }
+      },
+      {
+        "content": "Uwielbiam te buty",
+        "grade": 5,
+        "yesAmount": 6,
+        "noAmount": 2,
+        "author": {
+          "name": "Dominika",
+          "city": "Warszawa",
+          "country": "Polska"
+        }
+      },
+      {
+        "content": "Kolor zupełnie inny niż na zdjęciu i do tego słabiej jakości materiał",
+        "grade": 2,
+        "yesAmount": 4,
+        "noAmount": 3,
+        "author": {
+          "name": "Monika",
+          "city": "Sosnowiec",
+          "country": "Polska"
+        }
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "opinions": [
+      {
+        "content": "Bardzo niewygodne obuwie",
+        "grade": 1,
+        "yesAmount": 3,
+        "noAmount": 1,
+        "author": {
+          "name": "Daria",
+          "city": "Wrocław",
+          "country": "Polska"
+        }
+      },
+      {
+        "content": "Jestem niezadowolona z zakupu. Niewygodne obuwie, długo czekałam na przesyłkę",
+        "grade": 2,
+        "yesAmount": 1,
+        "noAmount": 0,
+        "author": {
+          "name": "Kasia",
+          "city": "Toruń",
+          "country": "Polska"
+        }
+      },
+      {
+        "content": "Nie poolecam produktu",
+        "grade": 2,
+        "yesAmount": 3,
+        "noAmount": 1,
+        "author": {
+          "name": "Klaudia",
+          "city": "Poznań",
+          "country": "Polska"
+        }
+      },
+      {
+        "content": "Całkiem ok",
+        "grade": 3,
+        "yesAmount": 3,
+        "noAmount": 6,
+        "author": {
+          "name": "Daria",
+          "city": "Sopot",
+          "country": "Polska"
+        }
+      },
+      {
+        "content": "Ani razu nie ubrałam tych butów. Bardzo niewygodne",
+        "grade": 1,
+        "yesAmount": 6,
+        "noAmount": 2,
+        "author": {
+          "name": "Dominika",
+          "city": "Warszawa",
+          "country": "Polska"
+        }
+      },
+      {
+        "content": "Kolor zupełnie inny niż na zdjęciu i do tego słabiej jakości materiał",
+        "grade": 2,
+        "yesAmount": 4,
+        "noAmount": 3,
+        "author": {
+          "name": "Monika",
+          "city": "Sosnowiec",
           "country": "Polska"
         }
       }
