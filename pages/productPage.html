@@ -1021,37 +1021,43 @@
             </div>
           </div>
           <div class="container__col-12 container__col-md-8 opinions__lists">
-            <div class="list__item" data-rate-opinion="5">
-              <div class="list__item--header">
-                <div class="stars">
-                  <div class="stars--icon">
-                    <i class="icon-star stars--selected"></i>
-                    <i class="icon-star stars--selected"></i>
-                    <i class="icon-star stars--selected"></i>
-                    <i class="icon-star stars--selected"></i>
-                    <i class="icon-star stars--selected"></i>
+            <template id="opinion-item-template">
+              <div class="list__item">
+                <div class="list__item--header">
+                  <div class="stars">
+                    <div class="stars--icon">
+                      <i class="icon-star stars--selected"></i>
+                      <i class="icon-star stars--selected"></i>
+                      <i class="icon-star stars--selected"></i>
+                      <i class="icon-star stars--selected"></i>
+                      <i class="icon-star stars--selected"></i>
+                    </div>
+                    <div class="stars--note">5/5</div>
                   </div>
-                  <div class="stars--note">5/5</div>
+                </div>
+                <div class="list__item--body">
+                  Towar zgodny z opisem. Szybka wysyłka. Gorąco polecam.
+                </div>
+                <div class="list__item--footer">
+                  <span class="opinion__author">Wera, Szczecin, Polska</span>
+                  <div class="opinion__rate">
+                    <span>Czy ta opinia była pomocna?</span>
+                    <a href="" title="" class="opinion__rate--yes"
+                      ><i class="icon-thumbs-up-alt"></i>Tak
+                      <span class="opinion__rate--count">3</span>
+                    </a>
+                    <a
+                      href="opinion__rate--no"
+                      title=""
+                      class="opinion__rate--no"
+                      ><i class="icon-thumbs-down"></i>Nie
+                      <span class="opinion__rate--count">0</span></a
+                    >
+                  </div>
                 </div>
               </div>
-              <div class="list__item--body">
-                Towar zgodny z opisem. Szybka wysyłka. Gorąco polecam.
-              </div>
-              <div class="list__item--footer">
-                <span class="opinion__author">Wera, Szczecin, Polska</span>
-                <div class="opinion__rate">
-                  <span>Czy ta opinia była pomocna?</span>
-                  <a href="" title="" class="opinion__rate--yes"
-                    ><i class="icon-thumbs-up-alt"></i>Tak
-                    <span class="opinion__rate--count">3</span>
-                  </a>
-                  <a href="opinion__rate--no" title="" class="opinion__rate--no"
-                    ><i class="icon-thumbs-down"></i>Nie
-                    <span class="opinion__rate--count">0</span></a
-                  >
-                </div>
-              </div>
-            </div>
+            </template>
+
             <div class="list__item" data-rate-opinion="5">
               <div class="list__item--header">
                 <div class="stars">
@@ -1240,6 +1246,7 @@
                 </div>
               </div>
             </div>
+
             <div class="message message--info hidden" id="no-rate">
               Brak opinii z taką liczbą gwiazdek
             </div>

@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "opinions": [
+      {
+        "content": "Solidny produkt. Jednak bardzo drogi",
+        "grade": 4,
+        "yesAmount": 3,
+        "noAmount": 2,
+        "author": {
+          "name": "Kasia",
+          "city": "Szczecin",
+          "country": "Polska"
+        }
+      },
+      {
+        "content": "Jak na tą cenę, to może być",
+        "grade": 4,
+        "yesAmount": 5,
+        "noAmount": 1,
+        "author": {
+          "name": "Karolina",
+          "city": "Gdańsk",
+          "country": "Polska"
+        }
+      },
+      {
+        "content": "Bardzo wygodne buty",
+        "grade": 5,
+        "yesAmount": 3,
+        "noAmount": 6,
+        "author": {
+          "name": "Daria",
+          "city": "Sopot",
+          "country": "Polska"
+        }
+      },
+      {
+        "content": "Uwielbiam te buty",
+        "grade": 5,
+        "yesAmount": 6,
+        "noAmount": 2,
+        "author": {
+          "name": "Dominika",
+          "city": "Warszawa",
+          "country": "Polska"
+        }
+      },
+      {
+        "content": "Kolor zupełnie inny niż na zdjęciu",
+        "grade": 2,
+        "yesAmount": 4,
+        "noAmount": 3,
+        "author": {
+          "name": "Monika",
+          "city": "Kraków",
+          "country": "Polska"
+        }
+      }
+    ]
+  }
+]

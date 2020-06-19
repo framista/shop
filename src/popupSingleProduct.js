@@ -47,7 +47,7 @@ function updateProduct(product) {
 
 function getProductData(id) {
   const xhr = new XMLHttpRequest();
-  xhr.open('GET', './src/shoesData.json', true);
+  xhr.open('GET', '../data/shoesData.json', true);
   xhr.onload = function () {
     if (this.status === 200) {
       const result = JSON.parse(this.responseText);
