@@ -216,6 +216,17 @@
     "id": 4,
     "opinions": [
       {
+        "content": "Kupiłam na promocji i mnie się buciki podobają 😀",
+        "grade": 5,
+        "yesAmount": 1,
+        "noAmount": 5,
+        "author": {
+          "name": "Marta",
+          "city": "Wrocław",
+          "country": "Polska"
+        }
+      },
+      {
         "content": "Bardzo niewygodne obuwie",
         "grade": 1,
         "yesAmount": 3,
@@ -223,6 +234,17 @@
         "author": {
           "name": "Daria",
           "city": "Wrocław",
+          "country": "Polska"
+        }
+      },
+      {
+        "content": "Nie podobają mi się 😒😒",
+        "grade": 1,
+        "yesAmount": 3,
+        "noAmount": 1,
+        "author": {
+          "name": "Kasia",
+          "city": "Leśna",
           "country": "Polska"
         }
       },
