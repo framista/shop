@@ -56,7 +56,7 @@
         </div>
         <div class="container__row company">
           <div class="container__col-4 logo">
-            <a href="" title="">
+            <a href="/index.html" title="">
               <img src="../style/images/logoArmodo.svg" alt="logo" />
             </a>
           </div>
@@ -566,7 +566,7 @@
       </header>
 
       <main>
-        <section class="container__row selectedProduct">
+        <section class="container__row selectedProduct single-product">
           <div
             class="container__col-12 container__col-lg-8 selectedProduct__info"
           >
@@ -595,7 +595,11 @@
             </div>
             <div class="selectedProduct__info--sliderSide">
               <div>
-                <img src="../style/images/shoeBlack3.png" alt="shoeBlack1" />
+                <img
+                  class="product-img-1"
+                  src="../style/images/shoeBlack3.png"
+                  alt="shoeBlack1"
+                />
               </div>
               <div>
                 <img src="../style/images/shoeBlack2.png" alt="shoeBlack2" />
@@ -634,7 +638,11 @@
             </div>
             <div class="carousel selectedProduct__info--slider">
               <div>
-                <img src="../style/images/shoeBlack3.png" alt="shoeBlack1" />
+                <img
+                  class="product-img-1"
+                  src="../style/images/shoeBlack3.png"
+                  alt="shoeBlack1"
+                />
               </div>
               <div>
                 <img src="../style/images/shoeBlack2.png" alt="shoeBlack2" />
@@ -655,6 +663,7 @@
           </div>
           <div
             class="container__col-12 container__col-lg-4 selectedProduct__priceSchedule"
+            data-product_id="1"
           >
             <div class="selectedProduct__priceSchedule--producer">
               <img src="../style/images/shop6.svg" alt="shop6" />
@@ -670,7 +679,7 @@
               method="POST"
               action=""
             >
-              <p class="price">289,99</p>
+              <p class="price" id="price">289,99</p>
               <div class="priceold">
                 <p class="priceold--amount">321,00</p>
                 <p class="priceold--details">Oszczędzasz 10% (22,56 zł)</p>

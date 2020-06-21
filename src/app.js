@@ -161,12 +161,28 @@ submenuLiTemp.forEach((li) => {
 });
 
 /*
+  update basket amount and price
+*/
+function updateBasket(data) {
+  const basketPrice = document.querySelector('#basket-price');
+  basketPrice.innerText = `${Math.round(data.priceTotal * 100) / 100} zł`;
+  const basketAmount = document.querySelector('#basket-amount');
+  basketAmount.innerText = data.products.length;
+}
+
+const basketData = JSON.parse(localStorage.getItem('basket')) || {
+  priceTotal: 0,
+  products: [],
+};
+updateBasket(basketData);
+
+/*
   select to choose the size of shoe
 */
-$('.select__normal').click(function () {
-  $('.select__active').toggleClass('hidden');
-  $('.select__normal--error').addClass('hidden');
-  $('.select__active li').click(function () {
+$('.popup-product .select__normal').click(function () {
+  $('.popup-product .select__active').toggleClass('hidden');
+  $('.popup-product .select__normal--error').addClass('hidden');
+  $('.popup-product .select__active li').click(function () {
     const size = this.innerText.split(' ')[1];
     const sizeInp = document.querySelector('#popup-size');
     sizeInp.innerText = size;
@@ -182,11 +198,25 @@ $('.select__normal').click(function () {
         $('.select__normal--choosen-available').addClass('few');
         break;
     }
-    $('.select__normal--notchoosen').addClass('hidden');
-    $('.select__normal--choosen').removeClass('hidden');
-    $('.select__active').addClass('hidden');
+    $('.popup-product .select__normal--notchoosen').addClass('hidden');
+    $('.popup-product .select__normal--choosen').removeClass('hidden');
+    $('.popup-product .select__active').addClass('hidden');
   });
 });
+
+/*
+  open product page 
+*/
+function openProductPage(e, id) {
+  e.preventDefault();
+  localStorage.setItem('selectedProduct', id);
+  const currentUrl = window.location.href;
+  if (currentUrl.includes('index')) {
+    window.location.href = '../pages/productPage.html';
+  } else {
+    window.location.reload(false);
+  }
+}
 
 /*
   create product to section selected for you
@@ -200,8 +230,10 @@ function createProduct(product, id) {
   const img = item.querySelector('img');
   img.src = product.img1;
   img.alt = `shoe${product.id}`;
+  img.addEventListener('click', (e) => openProductPage(e, product.id));
   const name = item.querySelector('.name');
   name.innerText = product.name;
+  name.addEventListener('click', (e) => openProductPage(e, product.id));
   const model = item.querySelector('.model');
   model.innerText = product.model;
   const price = item.querySelector('.price');

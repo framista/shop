@@ -97,13 +97,13 @@ overlay.addEventListener('click', () => {
 */
 function updateBasket(data) {
   const basketPrice = document.querySelector('#basket-price');
-  basketPrice.innerText = data.priceTotal;
+  basketPrice.innerText = `${Math.round(data.priceTotal * 100) / 100} zł`;
   const basketAmount = document.querySelector('#basket-amount');
   basketAmount.innerText = data.products.length;
 }
 
 /*
-  save product
+    save product
 */
 function saveProduct(product) {
   const { id, price, size } = product;

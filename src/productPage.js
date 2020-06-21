@@ -2,6 +2,41 @@ const rateStars = [...document.querySelectorAll('.rate')];
 let productOpinions;
 
 /*
+  set stars, to be shown as selected or notselected
+*/
+function setActiveStars(grade, starsContainer) {
+  const popupIconsStar = starsContainer.querySelectorAll('i');
+  popupIconsStar.forEach((icon) => icon.classList.remove('stars--selected'));
+  for (let i = 0; i < Math.floor(grade); i++) {
+    popupIconsStar[i].classList.add('stars--selected');
+  }
+}
+
+/*
+  set main product info
+*/
+function updateMainProduct(product) {
+  console.log(product);
+  const { name, model, oldPrice, price, img1, saving } = product;
+  document.querySelector('#price').innerText = price;
+  document.querySelector(
+    '.single-product .priceold--amount'
+  ).innerText = oldPrice;
+  document.querySelector(
+    '.single-product .priceold--details'
+  ).innerText = saving;
+  document.querySelector(
+    '.single-product .selectedProduct__info--model h3'
+  ).innerText = name;
+  document.querySelector(
+    '.single-product .selectedProduct__info--model p'
+  ).innerText = model;
+  document
+    .querySelectorAll('.product-img-1')
+    .forEach((img) => (img.src = img1));
+}
+
+/*
   remove all opinions from container with users opinions
 */
 function removeChildren(container, classSelected) {
@@ -11,17 +46,6 @@ function removeChildren(container, classSelected) {
       child.remove();
     }
   });
-}
-
-/*
-  set stars, to be shown as selected or notselected
-*/
-function setActiveStars(grade, starsContainer) {
-  const popupIconsStar = starsContainer.querySelectorAll('i');
-  popupIconsStar.forEach((icon) => icon.classList.remove('stars--selected'));
-  for (let i = 0; i < Math.floor(grade); i++) {
-    popupIconsStar[i].classList.add('stars--selected');
-  }
 }
 
 /*
@@ -55,7 +79,7 @@ function updateRates(grade) {
 }
 
 /*
-  count mean value of array with amount of particulat rate
+  count mean value of array with amount of particular rate
 */
 function getMeanRate(tab, total) {
   const particularGrades = [...tab].reverse();
@@ -83,6 +107,15 @@ function updateStars() {
     '.opinions__average--note .stars--icon'
   );
   setActiveStars(meanRate, starsContainer);
+  // update grades on main view
+  document.querySelector(
+    '.single-product .selectedProduct__info--grade .stars p'
+  ).innerText = meanRate;
+  const mainStarsContainer = document.querySelector(
+    '.single-product .selectedProduct__info--grade .stars--icon'
+  );
+  setActiveStars(meanRate, mainStarsContainer);
+  // end update main view
   document.querySelector(
     '.opinions__average--summary'
   ).innerText = `Liczba wystawionych opinii: ${totalUserOpinion}`;
@@ -118,8 +151,25 @@ function getOpinionsData(id) {
   xhr.send();
 }
 
-const productId = 1;
+/*
+  get from a file information about main product
+*/
+function getProductData(id) {
+  const xhr = new XMLHttpRequest();
+  xhr.open('GET', '../data/shoesData.json', true);
+  xhr.onload = function () {
+    if (this.status === 200) {
+      const result = JSON.parse(this.responseText);
+      const [product] = result.filter((e) => e.id === parseInt(id, 10));
+      updateMainProduct(product);
+    }
+  };
+  xhr.send();
+}
+
+const productId = localStorage.getItem('selectedProduct') || 1;
 getOpinionsData(productId);
+getProductData(productId);
 
 /*
  action for selected rate stars for product card in order to see customer's opinions
@@ -141,11 +191,72 @@ rateStars.forEach((rate) => {
 });
 
 /*
+  update basket amount and price
+*/
+function updateBasket(data) {
+  const basketPrice = document.querySelector('#basket-price');
+  basketPrice.innerText = `${Math.round(data.priceTotal * 100) / 100} zł`;
+  const basketAmount = document.querySelector('#basket-amount');
+  basketAmount.innerText = data.products.length;
+}
+
+/*
+    save product
+*/
+function saveSelectedProduct(product) {
+  const { id, price, size } = product;
+  const basketData = JSON.parse(localStorage.getItem('basket')) || {
+    priceTotal: 0,
+    products: [],
+  };
+  basketData.priceTotal += parseFloat(price);
+  basketData.products.push({ id, size });
+  localStorage.setItem('basket', JSON.stringify(basketData));
+  updateBasket(basketData);
+}
+
+/*
     add selected product to chart
 */
 $('#selectedProduct-add').click(function (e) {
   e.preventDefault();
-  if (!$('.select__normal--notchoosen').hasClass('hidden')) {
+  if ($('.select__normal--notchoosen').hasClass('hidden')) {
+    const size = document.querySelector('#size').innerText;
+    const price = document.querySelector('#price').innerText.replace(',', '.');
+    const id = document.querySelector('.selectedProduct__priceSchedule').dataset
+      .product_id;
+    console.log(document.querySelector('.selectedProduct__priceSchedule'));
+    saveSelectedProduct({ id, price, size });
+  } else {
     $('.select__normal--error').removeClass('hidden');
   }
+});
+
+/*
+  select to choose the size of shoe
+*/
+$('.single-product .select__normal').click(function () {
+  console.log('klika');
+  $('.single-product .select__active').toggleClass('hidden');
+  $('.single-product .select__normal--error').addClass('hidden');
+  $('.single-product .select__active li').click(function () {
+    const size = this.innerText.split(' ')[1];
+    const sizeInp = document.querySelector('#size');
+    sizeInp.innerText = size;
+    const availableAmount = ['Dostępne', 'Niedostępne', 'Ostatnie'];
+    const availableInp = document.querySelector('#popup-available');
+    availableInp.innerText = availableAmount[parseInt(size, 10) % 3];
+    $('.select__normal--choosen-available').removeClass('not few');
+    switch (availableInp.innerText) {
+      case 'Niedostępne':
+        $('.select__normal--choosen-available').addClass('not');
+        break;
+      case 'Ostatnie':
+        $('.select__normal--choosen-available').addClass('few');
+        break;
+    }
+    $('.single-product .select__normal--notchoosen').addClass('hidden');
+    $('.single-product .select__normal--choosen').removeClass('hidden');
+    $('.single-product .select__active').addClass('hidden');
+  });
 });

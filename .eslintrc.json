@@ -10,7 +10,8 @@
     "no-return-assign": "off",
     "no-plusplus": "off",
     "default-case": "off",
-    "no-case-declarations": "off"
+    "no-case-declarations": "off",
+    "import/prefer-default-export": "off"
   },
   "env": {
     "browser": true,
