@@ -169,10 +169,10 @@ $('.select__normal').click(function () {
   $('.select__normal--error').addClass('hidden');
   $('.select__active li').click(function () {
     const size = this.innerText.split(' ')[1];
-    const sizeInp = document.querySelector('#size');
+    const sizeInp = document.querySelector('#popup-size');
     sizeInp.innerText = size;
     const availableAmount = ['Dostępne', 'Niedostępne', 'Ostatnie'];
-    const availableInp = document.querySelector('#available');
+    const availableInp = document.querySelector('#popup-available');
     availableInp.innerText = availableAmount[parseInt(size, 10) % 3];
     $('.select__normal--choosen-available').removeClass('not few');
     switch (availableInp.innerText) {
@@ -225,15 +225,10 @@ function getProductData() {
   xhr.send();
 }
 
+/*
+  set correct data to examples products choosen for you
+*/
 getProductData();
-// /*
-//   set correct data to examples products choosen for you
-// */
-// const productsForYou = document.querySelectorAll('.product__item');
-// productsForYou.forEach((product) => {
-//   const productId = product.dataset.product;
-//   getProductData(productId);
-// });
 
 /*
   sliders

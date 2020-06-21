@@ -17,7 +17,7 @@
     "price": "89,99",
     "saving": "Oszczędzasz 5% (12,99zł)",
     "grade": 2.5,
-    "img1": "./style/images/shoe2.png"
+    "img1": "../style/images/shoe2.png"
   },
   {
     "id": 3,

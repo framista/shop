@@ -62,12 +62,13 @@ openProductPopupButtons.forEach((button) => {
   button.addEventListener('click', () => {
     const currentWidth = window.innerWidth;
     if (currentWidth > 1150) {
-      $('.select__normal--notchoosen').removeClass('hidden');
-      $('.select__normal--choosen').addClass('hidden');
+      $('.popup-product .select__normal--notchoosen').removeClass('hidden');
+      $('.popup-product .select__normal--choosen').addClass('hidden');
       const popup = document.querySelector('.popup-product');
       const popupWaiting = document.querySelector('#popup-waiting');
       popupWaiting.setAttribute('data-popup-waiting', 'message');
-      const idProduct = button.dataset.product;
+      const productItem = button.closest('.product__item');
+      const idProduct = productItem.dataset.product;
       getProductData(idProduct);
       openPopup(popup);
     }
@@ -103,8 +104,8 @@ $('#popup-product-add').click(function (e) {
     'style',
     `width: ${Math.floor(width)}px; height: ${Math.floor(height)}px`
   );
-  if (!$('.select__normal--notchoosen').hasClass('hidden')) {
-    $('.select__normal--error').removeClass('hidden');
+  if (!$('.popup-product .select__normal--notchoosen').hasClass('hidden')) {
+    $('.popup-product .select__normal--error').removeClass('hidden');
     popupWaiting.innerHTML = `Proszę wybierz rozmiar <br /> jaki chciałbyś kupić`;
   } else {
     popupWaiting.setAttribute('data-popup-waiting', 'loader');
@@ -130,3 +131,8 @@ $('#popup-waiting').click(function () {
     closePopupWaiting();
   }
 });
+
+/*
+  wait to load and perform js
+*/
+// document.addEventListener('DOMContentLoaded', ready);

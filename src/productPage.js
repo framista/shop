@@ -4,10 +4,10 @@ let productOpinions;
 /*
   remove all opinions from container with users opinions
 */
-function removeOpinions(opinionsContainer) {
-  const opinionsContainerChildren = [...opinionsContainer.children];
-  opinionsContainerChildren.forEach((child) => {
-    if (child.classList.contains('list__item')) {
+function removeChildren(container, classSelected) {
+  const containerChildren = [...container.children];
+  containerChildren.forEach((child) => {
+    if (child.classList.contains(classSelected)) {
       child.remove();
     }
   });
@@ -29,7 +29,7 @@ function setActiveStars(grade, starsContainer) {
 */
 function updateRates(grade) {
   const opinionsContainer = document.querySelector('.opinions__lists');
-  removeOpinions(opinionsContainer);
+  removeChildren(opinionsContainer, 'list__item');
   const opinionSelectedGrade = productOpinions.opinions.filter((opinion) => {
     return opinion.grade === grade;
   });
@@ -130,7 +130,7 @@ rateStars.forEach((rate) => {
     const selectedRateAmount = e.currentTarget.lastElementChild.innerText;
     const noRate = document.querySelector('#no-rate');
     const opinionsContainer = document.querySelector('.opinions__lists');
-    removeOpinions(opinionsContainer);
+    removeChildren(opinionsContainer, 'list__item');
     if (selectedRateAmount === '0') {
       noRate.classList.remove('hidden');
     } else {

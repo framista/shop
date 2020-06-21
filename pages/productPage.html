@@ -875,49 +875,204 @@
         </section>
         <section class="container_row product">
           <div class="container__col-12">
-            <p id="product__p">wybrane dla ciebie</p>
+            <p class="product__p">wybrane dla ciebie</p>
           </div>
-          <div class="carousel slider--products">
-            <div class="product__item">
-              <a href="#" title=""
-                ><img src="../style/images/shoe1.png" alt="shoe1"
-              /></a>
-              <div class="product__item--content">
-                <a href="#" title="">botki karino</a>
-                <p class="model">3019/076-f czarny</p>
-                <p class="price">289,00 zł</p>
+          <div class="carousel slider--products"></div>
+        </section>
+        <template id="product-item-template">
+          <div class="product__item" data-product="1">
+            <a href="#" title=""
+              ><img src="./style/images/shoe1.png" alt="shoe1"
+            /></a>
+            <div class="product__item--content">
+              <a href="#" title="" class="name">botki karino</a>
+              <p class="model">3019/076-f czarny</p>
+              <p class="price price--discount">
+                289,00 zł <sup>289,00 zł</sup>
+              </p>
+              <button class="btn product__item--add" data-product="1">
+                Dodaj do koszyka
+              </button>
+            </div>
+          </div>
+        </template>
+
+        <div class="overlay"></div>
+        <section class="container__row selectedProduct popup-product">
+          <div
+            id="popup-waiting"
+            class="popup-product--waiting"
+            data-popup-waiting="message"
+          ></div>
+          <div
+            class="container__col-12 container__col-lg-8 selectedProduct__info"
+          >
+            <div class="selectedProduct__info--sliderSide">
+              <div>
+                <img
+                  class="popup-img-1"
+                  src="../style/images/shoeBlack3.png"
+                  alt="shoeBlack1"
+                />
+              </div>
+              <div>
+                <img src="../style/images/shoeBlack2.png" alt="shoeBlack2" />
+              </div>
+              <div>
+                <img src="../style/images/shoeBlack1.png" alt="shoeBlack3" />
+              </div>
+              <div>
+                <img src="../style/images/shoeBlack3.png" alt="shoeBlack4" />
+              </div>
+              <div>
+                <img src="../style/images/shoeBlack2.png" alt="shoeBlack5" />
+              </div>
+              <div>
+                <img src="../style/images/shoeBlack1.png" alt="shoeBlack6" />
               </div>
             </div>
-            <div class="product__item">
-              <a href="#" title=""
-                ><img src="../style/images/shoe2.png" alt="shoe2"
-              /></a>
-              <div class="product__item--content">
-                <a href="#" title="">botki karino</a>
-                <p class="model">3019/076-f czarny</p>
-                <p class="price">289,00 zł</p>
+            <div class="selectedProduct__info--model">
+              <h3 id="popup-name">botki karino</h3>
+              <p id="popup-model">3019/076-F czarny</p>
+            </div>
+            <div class="selectedProduct__info--grade">
+              <div class="badge badge--promotion">
+                <a href="" title="">Promocja</a>
+              </div>
+              <div class="stars">
+                <div id="popup-stars" class="stars--icon">
+                  <i class="icon-star"></i>
+                  <i class="icon-star"></i>
+                  <i class="icon-star"></i>
+                  <i class="icon-star"></i>
+                  <i class="icon-star"></i>
+                </div>
+                <p id="popup-grade">4.5</p>
               </div>
             </div>
-            <div class="product__item">
-              <a href="#" title=""
-                ><img src="../style/images/shoe3.png" alt="shoe3"
-              /></a>
-              <div class="product__item--content">
-                <a href="#" title="">botki karino</a>
-                <p class="model">3019/076-f czarny</p>
-                <p class="price price--discount">
-                  289,00 zł <sup>289,00 zł</sup>
+            <div class="carousel selectedProduct__info--slider">
+              <div>
+                <img
+                  class="popup-img-1"
+                  src="../style/images/shoeBlack3.png"
+                  alt="shoeBlack1"
+                />
+              </div>
+              <div>
+                <img src="../style/images/shoeBlack2.png" alt="shoeBlack2" />
+              </div>
+              <div>
+                <img src="../style/images/shoeBlack1.png" alt="shoeBlack3" />
+              </div>
+              <div>
+                <img src="../style/images/shoeBlack3.png" alt="shoeBlack4" />
+              </div>
+              <div>
+                <img src="../style/images/shoeBlack2.png" alt="shoeBlack5" />
+              </div>
+              <div>
+                <img src="../style/images/shoeBlack1.png" alt="shoeBlack6" />
+              </div>
+            </div>
+          </div>
+          <div
+            class="container__col-12 container__col-lg-4 selectedProduct__priceSchedule"
+          >
+            <div
+              class="selectedProduct__priceSchedule--close"
+              id="product-popup-close"
+            >
+              &times;
+            </div>
+            <form
+              class="selectedProduct__priceSchedule--form"
+              method="POST"
+              action=""
+            >
+              <p class="price" id="popup-price">289,99</p>
+              <div class="priceold">
+                <p class="priceold--amount" id="popup-oldprice">321,00</p>
+                <p class="priceold--details" id="popup-saving">
+                  Oszczędzasz 10% (22,56 zł)
                 </p>
               </div>
-            </div>
-            <div class="product__item">
-              <a href="#" title=""
-                ><img src="../style/images/shoe4.png" alt="shoe4"
-              /></a>
-              <div class="product__item--content">
-                <a href="#" title="">Botki carini</a>
-                <p class="model">3019/076-f czarny</p>
-                <p class="price">289,00 zł</p>
+              <div class="iconText">
+                <img src="../style/images/clock.svg" alt="clock" />
+                <p>Zamów dziś, wyślemy w czwartek 12.02</p>
+              </div>
+              <div class="select">
+                <div class="select__normal">
+                  <div class="select__normal--notchoosen">
+                    <p>wybierz rozmiar</p>
+                  </div>
+                  <div class="select__normal--choosen hidden">
+                    <div class="select__normal--choosen-available"></div>
+                    <div class="select__normal--choosen-size">
+                      <p>
+                        Rozmiar: <span id="popup-size">38</span> |
+                        <span id="popup-available">Dostępne</span>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="select__normal--arrow">
+                    <img src="../style/images/arrowNext.svg" alt="arrow" />
+                  </div>
+                </div>
+                <div class="select__normal--error hidden">
+                  <p>Nie wybrano rozmiaru</p>
+                </div>
+                <div class="select__active hidden">
+                  <ul>
+                    <li>Rozmiar 35</li>
+                    <li>Rozmiar 36</li>
+                    <li>Rozmiar 37</li>
+                    <li>Rozmiar 38</li>
+                    <li>Rozmiar 39</li>
+                    <li>Rozmiar 40</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="size">
+                <img src="../style/images/size.svg" alt="size" />
+                <a href="" title="">Tabela rozmiarów</a>
+              </div>
+
+              <div class="submit">
+                <button
+                  id="popup-product-add"
+                  type="submit"
+                  class="btn btn--large"
+                >
+                  dodaj do koszyka
+                </button>
+                <a href="" title="">
+                  <img src="../style/images/heart.svg" alt="heart" />
+                </a>
+              </div>
+              <div class="iconText">
+                <img src="../style/images/truckDark.svg" alt="truck" />
+                <p>Darmowa dostawa</p>
+              </div>
+              <div class="iconText">
+                <img src="../style/images/returnProduct.svg" alt="clock" />
+                <p>30 dni na zwrot</p>
+              </div>
+              <div class="iconText">
+                <img src="../style/images/phoneHeader.svg" alt="clock" />
+                <p>Zamów telefonicznie | +48 786818322</p>
+              </div>
+            </form>
+            <div class="selectedProduct__priceSchedule--availableColor">
+              <h5>Dostępne kolory</h5>
+              <div class="models">
+                <a href="" title="">
+                  <img src="../style/images/shoeBlack2.png" alt="shoe2" />
+                  <p>Czarny</p>
+                </a>
+                <a href="" title="">
+                  <img src="../style/images/shoeBlack3.png" alt="shoe3" />
+                  <p>Brązowy</p>
+                </a>
               </div>
             </div>
           </div>
@@ -1063,7 +1218,7 @@
 
         <section class="container_row product">
           <div class="container__col-12">
-            <p id="product__p">spodobają ci się również</p>
+            <p class="product__p">spodobają ci się również</p>
           </div>
           <div class="carousel slider--products">
             <div class="product__item">
@@ -1210,5 +1365,6 @@
 
     <script src="../src/app.js" defer></script>
     <script src="../src/productPage.js" defer></script>
+    <script src="../src/popupSingleProduct.js" async></script>
   </body>
 </html>
