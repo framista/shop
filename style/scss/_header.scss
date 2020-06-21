@@ -115,18 +115,19 @@ header {
               text-transform: initial;
             }
           }
-          #chart {
+          #basket {
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
             margin-bottom: 5px;
-            #chart-amount {
+            #basket-amount {
               position: absolute;
               bottom: 1px;
               left: 14px;
               background-color: $white;
               padding: 1px;
+              font-size: 11px;
             }
           }
         }

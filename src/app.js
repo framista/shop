@@ -163,7 +163,6 @@ submenuLiTemp.forEach((li) => {
 /*
   select to choose the size of shoe
 */
-
 $('.select__normal').click(function () {
   $('.select__active').toggleClass('hidden');
   $('.select__normal--error').addClass('hidden');

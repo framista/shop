@@ -29,7 +29,8 @@ function closePopupWaiting() {
 }
 
 function updateProduct(product) {
-  const { name, model, oldPrice, price, saving, grade, img1 } = product;
+  const { id, name, model, oldPrice, price, saving, grade, img1 } = product;
+  document.querySelector('.popup-product').dataset.popup_id = id;
   document.querySelector('#popup-name').innerText = name;
   document.querySelector('#popup-model').innerText = model;
   document.querySelector('#popup-oldprice').innerText = oldPrice;
@@ -92,6 +93,31 @@ overlay.addEventListener('click', () => {
 });
 
 /*
+  update basket amount and price
+*/
+function updateBasket(data) {
+  const basketPrice = document.querySelector('#basket-price');
+  basketPrice.innerText = data.priceTotal;
+  const basketAmount = document.querySelector('#basket-amount');
+  basketAmount.innerText = data.products.length;
+}
+
+/*
+  save product
+*/
+function saveProduct(product) {
+  const { id, price, size } = product;
+  const basketData = JSON.parse(localStorage.getItem('basket')) || {
+    priceTotal: 0,
+    products: [],
+  };
+  basketData.priceTotal += parseFloat(price);
+  basketData.products.push({ id, size });
+  localStorage.setItem('basket', JSON.stringify(basketData));
+  updateBasket(basketData);
+}
+
+/*
   add product to chart - show loader and verify if size is selected
 */
 $('#popup-product-add').click(function (e) {
@@ -108,6 +134,12 @@ $('#popup-product-add').click(function (e) {
     $('.popup-product .select__normal--error').removeClass('hidden');
     popupWaiting.innerHTML = `Proszę wybierz rozmiar <br /> jaki chciałbyś kupić`;
   } else {
+    const size = document.querySelector('#popup-size').innerText;
+    const price = document
+      .querySelector('#popup-price')
+      .innerText.replace(',', '.');
+    const id = document.querySelector('.popup-product').dataset.popup_id;
+    saveProduct({ id, price, size });
     popupWaiting.setAttribute('data-popup-waiting', 'loader');
     popupWaiting.innerHTML = `
       <svg> 
@@ -131,8 +163,3 @@ $('#popup-waiting').click(function () {
     closePopupWaiting();
   }
 });
-
-/*
-  wait to load and perform js
-*/
-// document.addEventListener('DOMContentLoaded', ready);
