@@ -88,16 +88,20 @@
               </li>
               <li id="contact--box">
                 <a href="#" title="">
-                  <img src="./style/images/box.svg" alt="c3" />
-                  <p>12</p></a
-                >
-                <div>
-                  <a href="#" title="">Koszyk</a>
-                  <p>225,00 zł</p>
-                </div>
-                <a href="#" title="" id="contact--arrowBox">
-                  <img src="./style/images/arrowBox.svg" alt="c4"
-                /></a>
+                  <div id="chart">
+                    <img src="./style/images/box.svg" alt="c3" />
+                    <p id="chart-amount">0</p>
+                  </div>
+                  <div>
+                    Koszyk
+                    <p id="chart-prive">225,00 zł</p>
+                  </div>
+                  <img
+                    id="contact--arrowBox"
+                    src="./style/images/arrowBox.svg"
+                    alt="c4"
+                  />
+                </a>
               </li>
               <li id="contact--language">
                 <a href="#" title=""
@@ -640,63 +644,25 @@
             <p id="product__p">wybrane dla ciebie</p>
           </div>
           <div class="carousel slider--products">
-            <div class="product__item">
-              <a href="#" title=""
-                ><img src="./style/images/shoe1.png" alt="shoe1"
-              /></a>
-              <div class="product__item--content">
-                <a href="#" title="">botki karino</a>
-                <p class="model">3019/076-f czarny</p>
-                <p class="price">289,00 zł</p>
-                <button class="btn product__item--add" data-product="1">
-                  Dodaj do koszyka
-                </button>
-              </div>
-            </div>
-            <div class="product__item">
-              <a href="#" title=""
-                ><img src="./style/images/shoe2.png" alt="shoe2"
-              /></a>
-              <div class="product__item--content">
-                <a href="#" title="">botki karino</a>
-                <p class="model">3019/076-f czarny</p>
-                <p class="price">289,00 zł</p>
-                <button class="btn product__item--add" data-product="2">
-                  Dodaj do koszyka
-                </button>
-              </div>
-            </div>
-            <div class="product__item">
-              <a href="#" title=""
-                ><img src="./style/images/shoe3.png" alt="shoe3"
-              /></a>
-              <div class="product__item--content">
-                <a href="#" title="">botki karino</a>
-                <p class="model">3019/076-f czarny</p>
-                <p class="price price--discount">
-                  289,00 zł <sup>289,00 zł</sup>
-                </p>
-                <button class="btn product__item--add" data-product="3">
-                  Dodaj do koszyka
-                </button>
-              </div>
-            </div>
-            <div class="product__item">
-              <a href="#" title=""
-                ><img src="./style/images/shoe4.png" alt="shoe4"
-              /></a>
-              <div class="product__item--content">
-                <a href="#" title="">Botki carini</a>
-                <p class="model">3019/076-f czarny</p>
-                <p class="price">289,00 zł</p>
-                <button class="btn product__item--add" data-product="4">
-                  Dodaj do koszyka
-                </button>
-              </div>
+        </section>
+        <template id="product-item-template">
+          <div class="product__item" data-product="1">
+            <a href="#" title=""
+              ><img src="./style/images/shoe1.png" alt="shoe1"
+            /></a>
+            <div class="product__item--content">
+              <a href="#" title="" class="name">botki karino</a>
+              <p class="model">3019/076-f czarny</p>
+              <p class="price price--discount">
+                289,00 zł <sup>289,00 zł</sup>
+              </p>
+              <button class="btn product__item--add" data-product="1">
+                Dodaj do koszyka
+              </button>
             </div>
           </div>
-        </section>
-
+        </template>
+        
         <div class="overlay"></div>
         <section class="container__row selectedProduct popup-product">
           <div
@@ -1053,6 +1019,6 @@
     </div>
 
     <script src="./src/app.js" defer></script>
-    <script src="./src/popupSingleProduct.js" defer></script>
+    <script src="./src/popupSingleProduct.js" async></script>
   </body>
 </html>

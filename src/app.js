@@ -190,6 +190,52 @@ $('.select__normal').click(function () {
 });
 
 /*
+  create product to section selected for you
+*/
+function createProduct(product, id) {
+  const productsContainer = document.querySelector('.slider--products');
+  const template = document.getElementById('product-item-template');
+  const item = template.content.cloneNode(true);
+  const div = item.querySelector('.product__item');
+  div.dataset.product = id + 1;
+  const img = item.querySelector('img');
+  img.src = product.img1;
+  img.alt = `shoe${product.id}`;
+  const name = item.querySelector('.name');
+  name.innerText = product.name;
+  const model = item.querySelector('.model');
+  model.innerText = product.model;
+  const price = item.querySelector('.price');
+  price.innerHTML = `${product.price} zł <sup>${product.oldPrice} zł</sup>`;
+  productsContainer.append(item);
+}
+
+/*
+  get data about products from json file
+*/
+function getProductData() {
+  const xhr = new XMLHttpRequest();
+  xhr.open('GET', '../data/shoesData.json', true);
+  xhr.onload = function () {
+    if (this.status === 200) {
+      const result = JSON.parse(this.responseText);
+      result.forEach((p, index) => createProduct(p, index));
+    }
+  };
+  xhr.send();
+}
+
+getProductData();
+// /*
+//   set correct data to examples products choosen for you
+// */
+// const productsForYou = document.querySelectorAll('.product__item');
+// productsForYou.forEach((product) => {
+//   const productId = product.dataset.product;
+//   getProductData(productId);
+// });
+
+/*
   sliders
 */
 

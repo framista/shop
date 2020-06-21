@@ -107,15 +107,26 @@ header {
           display: none;
         }
         #contact--box {
-          text-align: end;
           a {
-            position: relative;
+            display: flex;
+            font-size: 13px;
+            text-transform: uppercase;
             p {
-              background-color: $white;
+              text-transform: initial;
+            }
+          }
+          #chart {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            margin-bottom: 5px;
+            #chart-amount {
               position: absolute;
-              right: 2px;
-              bottom: -3px;
-              z-index: 10;
+              bottom: 1px;
+              left: 14px;
+              background-color: $white;
+              padding: 1px;
             }
           }
         }
