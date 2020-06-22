@@ -11,11 +11,10 @@ const breakPointMd = 768;
 const breakPointLg = 951;
 // const breakPointXl = 1200;
 const prevWidth = window.innerWidth;
-
 let levelMenu = 0;
-
 const navArrows = [...document.querySelectorAll('.nav--arrow > img')];
 
+let allProducts = null;
 const elementsToHideOnMobile = [
   ...menuLists,
   carriers,
@@ -175,3 +174,135 @@ const basketData = JSON.parse(localStorage.getItem('basket')) || {
   products: [],
 };
 updateBasket(basketData);
+
+/*
+  create product to basket
+*/
+function createProduct(product, index) {
+  const { id, size, amount } = product;
+  const [selectedProduct] = allProducts.filter(
+    (p) => parseInt(id, 10) === p.id
+  );
+  const productsConteiner = document.querySelector('.basket__products');
+  const template = document.querySelector('#basket-products-item');
+  const item = template.content.cloneNode(true);
+  const div = item.querySelector('.basket__products--item');
+  div.dataset.product = index;
+  item.querySelector('img').src = selectedProduct.img1;
+  item.querySelector('.basket__products--name').innerText =
+    selectedProduct.name;
+  item.querySelector('.basket__products--model').innerText =
+    selectedProduct.model;
+  item.querySelector('.basket__products--size span').innerText = size;
+  item.querySelector('.basket__products--oneprice').innerText =
+    selectedProduct.price;
+  item.querySelector('.basket__amount--current').innerText = amount;
+  const priceForProducts =
+    amount * parseFloat(selectedProduct.price.replace(',', '.'));
+  const priceForProductsToString = priceForProducts
+    .toString()
+    .replace('.', ',');
+  item.querySelector(
+    '.basket__products--totalprice'
+  ).innerText = priceForProductsToString;
+  productsConteiner.append(item);
+}
+
+/*
+  update total prices products in basket and 
+*/
+function updatePrices(priceTotal) {
+  const delivery = 13;
+  const priceTotalToString = (Math.round(priceTotal * 100) / 100)
+    .toString()
+    .replace('.', ',');
+  document.querySelector(
+    '#basket-total-price-without-delivery'
+  ).innerText = priceTotalToString;
+  const priceWithDelivery = Math.round((priceTotal + delivery) * 100) / 100;
+  const priceWithDeliveryToString = priceWithDelivery
+    .toString()
+    .replace('.', ',');
+  document.querySelector(
+    '#basket-total-price'
+  ).innerText = priceWithDeliveryToString;
+}
+
+/*
+  amount of products in basket
+*/
+function updateAmountProducts(number) {
+  document.querySelector('#basket-products-amount').innerText = number;
+}
+
+/*
+  count total price in basket including amounts of products
+*/
+function countTotalPrice(products) {
+  const total = products.reduce((prev, curr) => {
+    const [selectedProduct] = allProducts.filter(
+      (p) => parseInt(curr.id, 10) === p.id
+    );
+    const productPrice = parseFloat(selectedProduct.price.replace(',', '.'));
+    return prev + curr.amount * productPrice;
+  }, 0);
+  return total;
+}
+
+/*
+  delete product
+*/
+function deleteProduct(e) {
+  e.preventDefault();
+  const clickedElement = e.target;
+  const productItem = clickedElement.closest('.basket__products--item');
+  productItem.remove();
+  const { products } = JSON.parse(localStorage.getItem('basket'));
+  const productToDeleteId = productItem.dataset.product;
+  products.splice(productToDeleteId, 1);
+  const updatedPriceTotal = countTotalPrice(products);
+  localStorage.setItem(
+    'basket',
+    JSON.stringify({ priceTotal: updatedPriceTotal, products })
+  );
+  window.location.reload();
+}
+
+/*
+  get data about products in basket from local storage
+*/
+function getProductsBasket() {
+  const data = JSON.parse(localStorage.getItem('basket'));
+  updatePrices(data.priceTotal);
+  const { products } = data;
+  const basketNoProductElement = document.querySelector('#basket-no-product');
+  if (products.length > 0) {
+    basketNoProductElement.classList.add('hidden');
+    updateAmountProducts(products.length);
+    products.forEach((product, index) => createProduct(product, index));
+    const deleteProductButtons = [
+      ...document.querySelectorAll('.basket__products--delete'),
+    ];
+    deleteProductButtons.forEach((button) =>
+      button.addEventListener('click', (e) => deleteProduct(e))
+    );
+  } else {
+    basketNoProductElement.classList.remove('hidden');
+  }
+}
+
+/*
+  get data about products from json file
+*/
+function getAllProductsData() {
+  const xhr = new XMLHttpRequest();
+  xhr.open('GET', '../data/shoesData.json', true);
+  xhr.onload = function () {
+    if (this.status === 200) {
+      allProducts = JSON.parse(this.responseText);
+      getProductsBasket();
+    }
+  };
+  xhr.send();
+}
+getAllProductsData();

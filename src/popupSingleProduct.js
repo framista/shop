@@ -112,7 +112,7 @@ function saveProduct(product) {
     products: [],
   };
   basketData.priceTotal += parseFloat(price);
-  basketData.products.push({ id, size });
+  basketData.products.push({ id, size, amount: 1 });
   localStorage.setItem('basket', JSON.stringify(basketData));
   updateBasket(basketData);
 }
