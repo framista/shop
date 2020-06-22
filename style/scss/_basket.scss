@@ -1,0 +1,98 @@
+.basket__h2 {
+  font-size: 25px;
+  font-weight: 300;
+  text-transform: uppercase;
+  padding: 40px 0px 15px;
+  letter-spacing: 2px;
+}
+
+@mixin setWidthAndCenter {
+  width: 90%;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding-bottom: 40px;
+}
+
+#main-basket {
+  width: 100%;
+  background-color: $arrow-bg;
+}
+
+#section-basket-products {
+  @include setWidthAndCenter();
+}
+#section-basket-summary {
+  @include setWidthAndCenter();
+  .basket__form {
+    background-color: $white;
+    padding: 20px;
+    &--summary {
+      .basket__detail {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+        &--text {
+          width: 180px;
+          text-align: right;
+          font-size: 13px;
+          letter-spacing: 1.3px;
+        }
+        &--price {
+          font-size: 20px;
+          font-weight: 900;
+          &::after {
+            content: ' zł';
+          }
+        }
+        #basket-total-price {
+          font-size: 22px;
+        }
+        #basket-total-text {
+          font-size: 17px;
+          text-transform: uppercase;
+          letter-spacing: 2px;
+        }
+      }
+    }
+    &--coupon {
+      padding: 20px 0px 10px;
+      button {
+        width: 100%;
+        margin: 10px auto;
+      }
+      .basket__coupon--text {
+        font-size: 13px;
+        padding: 25px 0px 15px;
+      }
+      #coupon {
+        display: flex;
+        justify-content: space-between;
+        input {
+          width: 70%;
+          outline: none;
+          border: none;
+          padding: 5px;
+          border: 2px solid $arrow-bg;
+          border-right: none;
+          font-size: 12px;
+          font-style: italic;
+        }
+        #coupon-confirm {
+          width: 30%;
+          margin: 0;
+        }
+      }
+    }
+  }
+}
+#section-basket-description {
+  @include setWidthAndCenter();
+  p,
+  a {
+    font-family: $font-stack;
+    color: $black;
+    font-size: 13px;
+    line-height: 1.9;
+    letter-spacing: 1.3px;
+  }
+}

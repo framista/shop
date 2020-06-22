@@ -211,10 +211,10 @@ function openProductPage(e, id) {
   e.preventDefault();
   localStorage.setItem('selectedProduct', id);
   const currentUrl = window.location.href;
-  if (currentUrl.includes('index')) {
-    window.location.href = '../pages/productPage.html';
-  } else {
+  if (currentUrl.includes('pages')) {
     window.location.reload(false);
+  } else {
+    window.location.href = '../pages/productPage.html';
   }
 }
 

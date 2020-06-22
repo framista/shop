@@ -15,6 +15,10 @@
       .slider--products {
         transform: translateX(10px);
       }
+      .product__item sup,
+      .product__item button {
+        display: none !important;
+      }
     }
 
     .selectedProduct {
