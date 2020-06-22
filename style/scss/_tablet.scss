@@ -245,4 +245,31 @@
       }
     }
   }
+
+  #section-basket-summary {
+    .basket__form {
+      flex-direction: column;
+      &--summary {
+        order: 0;
+        .basket__detail {
+          #basket-total-price {
+            font-size: 22px;
+          }
+          #basket-total-text {
+            font-size: 17px;
+          }
+        }
+      }
+      &--coupon {
+        width: 100%;
+        .basket__coupon--text {
+          font-size: 13px;
+        }
+        #basket-continue-shopping {
+          order: -1;
+          margin: 30px auto 30px;
+        }
+      }
+    }
+  }
 }

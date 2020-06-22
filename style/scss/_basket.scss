@@ -2,8 +2,16 @@
   font-size: 25px;
   font-weight: 300;
   text-transform: uppercase;
-  padding: 40px 0px 15px;
+  padding: 40px 0px 20px;
   letter-spacing: 2px;
+  #basket-products-amount {
+    &::before {
+      content: '(';
+    }
+    &::after {
+      content: ')';
+    }
+  }
 }
 
 @mixin setWidthAndCenter {
@@ -20,22 +28,111 @@
 
 #section-basket-products {
   @include setWidthAndCenter();
+  padding-bottom: 10px;
+  .basket__products {
+    &--item {
+      background-color: $white;
+      padding: 20px;
+      display: flex;
+      margin: 10px 0px;
+    }
+    &--about {
+      width: 50%;
+      display: flex;
+    }
+    &--img {
+      img {
+        width: 110px;
+      }
+    }
+    &--product {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 2px 30px;
+    }
+    &--name {
+      text-transform: uppercase;
+      font-size: 15px;
+      letter-spacing: 2px;
+    }
+    &--detail {
+      display: flex;
+      font-size: 13px;
+      padding: 10px 0px;
+      p {
+        margin-right: 20px;
+      }
+    }
+    &--action {
+      display: flex;
+      a {
+        @include centerFlex();
+        text-decoration: none;
+        color: $black;
+        padding: 15px;
+        padding-left: 0px;
+        .basket__products--heart,
+        .basket__products--delete {
+          width: 20px;
+          margin-right: 5px;
+        }
+      }
+    }
+    &--numbers {
+      width: 50%;
+      @include centerFlex();
+      justify-content: space-evenly;
+    }
+    &--oneprice,
+    &--totalprice {
+      font-weight: 900;
+      font-size: 20px;
+      &::after {
+        content: ' zł';
+      }
+    }
+    &--amount {
+      display: flex;
+      div {
+        @include centerFlex();
+        border: 2px solid $arrow-bg;
+        font-size: 20px;
+        font-weight: 900;
+        cursor: pointer;
+        width: 40px;
+        height: 40px;
+      }
+      .basket__amount--current {
+        border-right: none;
+        border-left: none;
+        font-size: 15px;
+        font-weight: 300;
+        cursor: auto;
+      }
+    }
+  }
 }
 #section-basket-summary {
   @include setWidthAndCenter();
+  padding-bottom: 10px;
   .basket__form {
     background-color: $white;
     padding: 20px;
+    display: flex;
+    justify-content: space-between;
     &--summary {
+      order: 1;
       .basket__detail {
         display: flex;
         justify-content: space-between;
         padding: 10px;
         &--text {
-          width: 180px;
+          width: 150px;
           text-align: right;
           font-size: 13px;
           letter-spacing: 1.3px;
+          margin-right: 60px;
         }
         &--price {
           font-size: 20px;
@@ -45,24 +142,32 @@
           }
         }
         #basket-total-price {
-          font-size: 22px;
+          font-size: 40px;
         }
         #basket-total-text {
-          font-size: 17px;
+          text-align: left;
+          font-size: 25px;
           text-transform: uppercase;
           letter-spacing: 2px;
         }
       }
-    }
-    &--coupon {
-      padding: 20px 0px 10px;
       button {
         width: 100%;
-        margin: 10px auto;
+        margin: 10px auto 0px;
+      }
+    }
+    &--coupon {
+      display: flex;
+      flex-direction: column;
+      width: 40%;
+      button {
+        order: 2;
+        width: 100%;
+        margin: 50px auto 0px;
       }
       .basket__coupon--text {
         font-size: 13px;
-        padding: 25px 0px 15px;
+        padding: 10px 0px 15px;
       }
       #coupon {
         display: flex;
@@ -94,5 +199,29 @@
     font-size: 13px;
     line-height: 1.9;
     letter-spacing: 1.3px;
+  }
+}
+
+@media (max-width: 780px) {
+  #section-basket-products {
+    .basket__products {
+      &--item {
+        flex-direction: column;
+      }
+      &--about,
+      &--numbers {
+        width: 100%;
+      }
+      &--numbers {
+        justify-content: flex-start;
+        margin-top: 20px;
+      }
+      .basket__products--oneprice {
+        margin-right: 80px;
+      }
+      .basket__products--totalprice {
+        display: none;
+      }
+    }
   }
 }

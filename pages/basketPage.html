@@ -567,7 +567,102 @@
 
       <main id="main-basket">
         <section id="section-basket-products">
-          <h2 class="basket__h2">koszyk</h2>
+          <h2 class="basket__h2">
+            koszyk <span id="basket-products-amount">2</span>
+          </h2>
+          <div class="basket__products">
+            <div class="basket__products--item">
+              <div class="basket__products--about">
+                <div class="basket__products--img">
+                  <img src="../style/images/shoe1.png" alt="" />
+                </div>
+                <div class="basket__products--product">
+                  <div class="basket__products--info">
+                    <p class="basket__products--name">Botki karino</p>
+                    <div class="basket__products--detail">
+                      <p class="basket__products--model">czerny</p>
+                      <p class="basket__products--size">
+                        Rozmiar: <span>36</span>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="basket__products--action">
+                    <a href="" title="" class="basket__products--favourite">
+                      <img
+                        class="basket__products--heart"
+                        src="../style/images/heart.svg"
+                        alt="heart"
+                      />
+                      Dodaj do ulubionych
+                    </a>
+                    <a href="" title="" class="basket__products--delete">
+                      <img
+                        class="basket__products--delete"
+                        src="../style/images/deleteBasket.png"
+                        alt="delete"
+                      />
+                      Usuń produkt
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="basket__products--numbers">
+                <div class="basket__products--oneprice">289,00</div>
+                <div class="basket__products--amount">
+                  <div>-</div>
+                  <div class="basket__amount--current">1</div>
+                  <div>+</div>
+                </div>
+                <div class="basket__products--totalprice">289,00</div>
+              </div>
+            </div>
+
+            <div class="basket__products--item">
+              <div class="basket__products--about">
+                <div class="basket__products--img">
+                  <img src="../style/images/shoe1.png" alt="" />
+                </div>
+                <div class="basket__products--product">
+                  <div class="basket__products--info">
+                    <p class="basket__products--name">Botki karino</p>
+                    <div class="basket__products--detail">
+                      <p class="basket__products--model">czerny</p>
+                      <p class="basket__products--size">
+                        Rozmiar: <span>36</span>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="basket__products--action">
+                    <a href="" title="" class="basket__products--favourite">
+                      <img
+                        class="basket__products--heart"
+                        src="../style/images/heart.svg"
+                        alt="heart"
+                      />
+                      Dodaj do ulubionych
+                    </a>
+                    <a href="" title="" class="basket__products--delete">
+                      <img
+                        class="basket__products--delete"
+                        src="../style/images/deleteBasket.png"
+                        alt="delete"
+                      />
+                      Usuń produkt
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="basket__products--numbers">
+                <div class="basket__products--oneprice">289,00</div>
+                <div class="basket__products--amount">
+                  <div>-</div>
+                  <div class="basket__amount--current">1</div>
+                  <div>+</div>
+                </div>
+                <div class="basket__products--totalprice">289,00</div>
+              </div>
+            </div>
+          </div>
         </section>
 
         <section id="section-basket-summary">
@@ -585,18 +680,23 @@
               <hr />
               <div class="basket__detail">
                 <p class="basket__detail--text" id="basket-total-text">
-                  Łącznie
+                  Łącznie:
                 </p>
                 <p class="basket__detail--price" id="basket-total-price">
                   460,00
                 </p>
               </div>
-            </div>
-            <div class="basket__form--coupon">
               <button type="submit" class="btn btn--large">
                 przejdź do kasy
               </button>
-              <button class="btn btn--large btn--outline" href="" title="">
+            </div>
+            <div class="basket__form--coupon">
+              <button
+                class="btn btn--large btn--outline"
+                id="basket-continue-shopping"
+                href=""
+                title=""
+              >
                 kontynuuj zakupy
               </button>
               <p class="basket__coupon--text">Masz kod rabatowy?</p>
