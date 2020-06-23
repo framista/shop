@@ -2,7 +2,7 @@
 
 ## General info
 
-Online shop web application.
+Online shop web application. Design from [Idosell](https://webcamp.idosell.com/)
 
 ## Technologies
 
@@ -12,7 +12,7 @@ Online shop web application.
 
 ## Live
 
-https://github.com/framista/shop
+https://framista-shop.herokuapp.com/index.html
 
 ## Demo
 
