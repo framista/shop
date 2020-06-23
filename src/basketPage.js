@@ -160,11 +160,18 @@ submenuLiTemp.forEach((li) => {
 });
 
 /*
+  round price to 2 numbers precision
+*/
+function roundPrice(number) {
+  return Math.round(number * 100) / 100;
+}
+
+/*
   update basket amount and price
 */
 function updateBasket(data) {
   const basketPrice = document.querySelector('#basket-price');
-  basketPrice.innerText = `${Math.round(data.priceTotal * 100) / 100} zł`;
+  basketPrice.innerText = `${roundPrice(data.priceTotal)} zł`;
   const basketAmount = document.querySelector('#basket-amount');
   basketAmount.innerText = data.products.length;
 }
@@ -205,6 +212,11 @@ function createProduct(product, index) {
   item.querySelector(
     '.basket__products--totalprice'
   ).innerText = priceForProductsToString;
+  if (amount === 1) {
+    item
+      .querySelector('.basket__sign--minus')
+      .classList.add('basket__sign--disabled');
+  }
   productsConteiner.append(item);
 }
 
@@ -213,13 +225,13 @@ function createProduct(product, index) {
 */
 function updatePrices(priceTotal) {
   const delivery = 13;
-  const priceTotalToString = (Math.round(priceTotal * 100) / 100)
+  const priceTotalToString = roundPrice(priceTotal)
     .toString()
     .replace('.', ',');
   document.querySelector(
     '#basket-total-price-without-delivery'
   ).innerText = priceTotalToString;
-  const priceWithDelivery = Math.round((priceTotal + delivery) * 100) / 100;
+  const priceWithDelivery = roundPrice(priceTotal + delivery);
   const priceWithDeliveryToString = priceWithDelivery
     .toString()
     .replace('.', ',');
@@ -269,6 +281,60 @@ function deleteProduct(e) {
 }
 
 /*
+  change amount of product
+*/
+function changeProductAmount(e) {
+  const clickedElement = e.target;
+  const productItem = clickedElement.closest('.basket__products--item');
+  const amountProductElement = productItem.querySelector(
+    '.basket__amount--current'
+  );
+  let amountProduct = parseInt(amountProductElement.innerText, 10);
+  const sign = clickedElement.classList.contains('basket__sign--minus')
+    ? 'minus'
+    : 'plus';
+  if (sign === 'minus') {
+    if (amountProduct === 1) {
+      clickedElement.classList.add('basket__sign--disabled');
+    } else {
+      amountProduct--;
+      if (amountProduct === 1) {
+        clickedElement.classList.add('basket__sign--disabled');
+      }
+    }
+    amountProductElement.innerText = amountProduct;
+  } else {
+    const minusSignButton = productItem.querySelector('.basket__sign--minus');
+    amountProduct++;
+    amountProductElement.innerText = amountProduct;
+    if (amountProduct !== 1) {
+      minusSignButton.classList.remove('basket__sign--disabled');
+    }
+  }
+  const totalPriceProductElement = productItem.querySelector(
+    '.basket__products--totalprice'
+  );
+  const productPrice = parseFloat(
+    productItem
+      .querySelector('.basket__products--oneprice')
+      .innerText.replace(',', '.')
+  );
+  totalPriceProductElement.innerText = roundPrice(productPrice * amountProduct)
+    .toString()
+    .replace('.', ',');
+  const { products } = JSON.parse(localStorage.getItem('basket'));
+  const productToChangeAmountId = productItem.dataset.product;
+  products[productToChangeAmountId].amount = amountProduct;
+  const updatedPriceTotal = countTotalPrice(products);
+  localStorage.setItem(
+    'basket',
+    JSON.stringify({ priceTotal: updatedPriceTotal, products })
+  );
+  updatePrices(updatedPriceTotal);
+  updateBasket({ priceTotal: updatedPriceTotal, products });
+}
+
+/*
   get data about products in basket from local storage
 */
 function getProductsBasket() {
@@ -285,6 +351,12 @@ function getProductsBasket() {
     ];
     deleteProductButtons.forEach((button) =>
       button.addEventListener('click', (e) => deleteProduct(e))
+    );
+    const changeAmountOfProductButtons = [
+      ...document.querySelectorAll('.basket__sign'),
+    ];
+    changeAmountOfProductButtons.forEach((button) =>
+      button.addEventListener('click', (e) => changeProductAmount(e))
     );
   } else {
     basketNoProductElement.classList.remove('hidden');

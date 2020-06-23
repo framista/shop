@@ -92,6 +92,9 @@
         content: ' zł';
       }
     }
+    &--totalprice {
+      width: 100px;
+    }
     &--amount {
       display: flex;
       div {
@@ -109,6 +112,17 @@
         font-size: 15px;
         font-weight: 300;
         cursor: auto;
+      }
+      .basket__sign {
+        &:hover {
+          background-color: $arrow-bg;
+        }
+        &--disabled {
+          background-color: $arrow-bg;
+          &:hover {
+            cursor: not-allowed;
+          }
+        }
       }
     }
   }
@@ -135,6 +149,7 @@
           margin-right: 60px;
         }
         &--price {
+          width: 220px;
           font-size: 20px;
           font-weight: 900;
           &::after {
