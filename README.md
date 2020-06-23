@@ -17,6 +17,7 @@ https://github.com/framista/shop
 ## Demo
 
 Watch how works app on mobile and desktop without needing of clicking on your own 😀
+<br>
 https://framista-shop.herokuapp.com/pages/videoPage.html
 
 ## Features
