@@ -340,7 +340,7 @@ function changeProductAmount(e) {
 function getProductsBasket() {
   const data = JSON.parse(localStorage.getItem('basket'));
   const basketNoProductElement = document.querySelector('#basket-no-product');
-  if (data) {
+  if (data.products.length > 0) {
     const { products } = data;
     updatePrices(data.priceTotal);
     basketNoProductElement.classList.add('hidden');
@@ -360,6 +360,7 @@ function getProductsBasket() {
     );
   } else {
     basketNoProductElement.classList.remove('hidden');
+    updatePrices(0);
   }
 }
 
