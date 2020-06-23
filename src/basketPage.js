@@ -206,7 +206,7 @@ function createProduct(product, index) {
   item.querySelector('.basket__amount--current').innerText = amount;
   const priceForProducts =
     amount * parseFloat(selectedProduct.price.replace(',', '.'));
-  const priceForProductsToString = priceForProducts
+  const priceForProductsToString = roundPrice(priceForProducts)
     .toString()
     .replace('.', ',');
   item.querySelector(
@@ -339,10 +339,10 @@ function changeProductAmount(e) {
 */
 function getProductsBasket() {
   const data = JSON.parse(localStorage.getItem('basket'));
-  updatePrices(data.priceTotal);
-  const { products } = data;
   const basketNoProductElement = document.querySelector('#basket-no-product');
-  if (products.length > 0) {
+  if (data) {
+    const { products } = data;
+    updatePrices(data.priceTotal);
     basketNoProductElement.classList.add('hidden');
     updateAmountProducts(products.length);
     products.forEach((product, index) => createProduct(product, index));
