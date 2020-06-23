@@ -16,21 +16,8 @@ https://github.com/framista/shop
 
 ## Demo
 
+Watch how works app on mobile and desktop without needing of clicking on your own 😀
 https://framista-shop.herokuapp.com/pages/videoPage.html
-
-Desktop:
-<video width="400">
-
-<source src="../style/movies/armodo_desktop.mkv" type="video/mp4" />
-Your browser does not support HTML video.
-</video>
-
-Mobile:
-<video width="400">
-
-<source src="../style/movies/armodo_mobile.mkv" type="video/mp4" />
-  Your browser does not support HTML video.
-</video>
 
 ## Features
 
